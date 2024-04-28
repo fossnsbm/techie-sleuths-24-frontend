@@ -1,7 +1,5 @@
 # Techie Sleuths '24🔎 | Code of Conduct
 
-<!-- ![Logo - White (With Partner)](https://github.com/fossnsbm/dialectic-web/assets/91784445/e5ab9dde-0014-45f2-94b7-3ba0dd8f85ef) -->
-
 ## Welcome to Techie Sleuths
 
 Techie Sleuths is a unique event organized by the FOSS Community of NSBM, a vibrant open-source community in Sri Lanka. This treasure hunt-like event challenges participants to unravel clues and solve a crossword puzzle. We are dedicated to fostering an engaging and inclusive environment for all participants, irrespective of their background, identity, or experience. We value diversity and believe that a multitude of perspectives enriches our event.
