@@ -8,7 +8,7 @@ export default function Page() {
     <div className="w-full h-full relative bg-slate-900">
       <Image
         alt="Mountains"
-        src="/assets/bg-img.png"
+        src="/assets/bg-img.webp"
         layout="fill"
         objectFit="cover"
       />
