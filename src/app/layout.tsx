@@ -1,16 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { ReduxProvider } from "@/store/provider";
 import { Toaster } from "@/components/ui/toaster";
-import localFont from "next/font/local";
-
-const inter = Inter({ subsets: ["latin"] });
-
-const thalehfatFont = localFont({
-  src: "../../public/fonts/ThaleahFat.ttf",
-  display: "swap",
-});
+import { jetbrains, thalehfatFont } from "@/styles/fonts";
 
 export const metadata: Metadata = {
   title: "Techie Sleuths '24🔎",
@@ -24,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${thalehfatFont.className}`}>
+      <body
+        className={`${jetbrains.variable} ${thalehfatFont.variable} font-sans`}
+      >
         <ReduxProvider>
           {children}
           <Toaster />

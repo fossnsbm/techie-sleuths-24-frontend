@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Marquee from "react-fast-marquee";
 import EventMarquee from "./_components/marquee";
 import QuestionBox from "./_components/question-box";
 
@@ -22,7 +21,7 @@ export default function Page() {
           className="animate-bounce hover:animate-spin"
         />
         <h1
-          className="text-black text-5xl text-center font-sans"
+          className="text-black text-5xl text-center "
           style={{
             textShadow:
               "2px 2px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff",
