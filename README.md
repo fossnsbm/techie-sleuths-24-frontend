@@ -1,6 +1,6 @@
 # Techie Sleuths '24 Frontend 🔎
 
-> Alpha relese
+> Alpha release
 
 ---
 
