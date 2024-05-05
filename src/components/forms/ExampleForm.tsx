@@ -77,7 +77,12 @@ export default function ExampleForm() {
                                             </FormItem>
                                         )}
                                     />
-                                    <Button type="submit">Submit</Button>
+                                    <div className="flex flex-col md:flex-row gap-4">
+                                        <Button type="submit" variant="default">Register Now</Button>
+                                        <Button type="reset" variant="secondary">Cancel</Button>
+                                        <Button type="button" variant="default" disabled>Disabled</Button>
+                                        <Button type="button" variant="default" disabled loading>Disabled</Button>
+                                    </div>
                                 </form>
                             </Form>
                         </div>
