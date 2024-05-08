@@ -30,7 +30,7 @@ const page = () => {
                   "4px 4px 0 #78350f, -4px -4px 0 #FEF3C7, 4px -4px 0 #FEF3C7, -4px 4px 0 #FEF3C7",
               }}
             >
-              LET'S GO
+              LET&apos;S GO
             </h1>
             <Input
               className=" transition duration-300 text-[20px] placeholder:text-[#5A270B] text-[#5A270B] mt-5 bg-[#FEF3C7] w-[80%] sm:w-[70%] h-[12%] border-4 border-[#A66224]  drop-shadow-lg hover:shadow-[0px_0px_0px_0px_rgba(0,0,0,0)]  shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-none "
