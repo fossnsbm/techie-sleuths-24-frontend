@@ -1,6 +1,7 @@
 import Image from "next/image";
 import EventMarquee from "./_components/marquee";
 import QuestionBox from "./_components/question-box";
+import HeroSection from "../../../../components/landing/hero";
 
 export default function Page() {
   return (
@@ -31,6 +32,7 @@ export default function Page() {
         </h1>
         <QuestionBox />
       </div>
+      <HeroSection/>
     </div>
   );
 }
