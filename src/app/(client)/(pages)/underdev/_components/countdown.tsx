@@ -37,45 +37,44 @@ const Countdown = () => {
   }, []); // Ensure useEffect runs only once
 
   return (
-    <div className="countdown flex mt-10 mb-10">
-  <div className="countdown-item-wrapper relative flex flex-col items-center mr-6">
-    <div className="countdown-item relative">
-      <img src="/assets/tile.png" alt="Tile" className="w-36 h-36 object-cover" />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-amber-100 text-8xl text-center mt-4 shadow-lg">
-        <span>{timeLeft.days}</span>
-        <div className="text-amber-100 text-2xl mb-12 shadow-lg">Days</div>
+    <div className="countdown justify-center flex mt-10 mb-10">
+      <div className="countdown-item-wrapper relative flex flex-col items-center mr-6">
+        <div className="countdown-item relative">
+          <img src="/assets/tile.png" alt="Tile" className="w-16 h-16 sm:w-24 sm:h-24 object-cover" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-amber-100 text-3xl sm:text-5xl md:text-6xl text-center mt-4">
+            <span style={{ position: 'relative', bottom: '-0.1rem' }}>{timeLeft.days}</span>
+            <div className="text-amber-100 text-xs sm:text-lg md:text-xl mb-10  shadow-lg" style={{ position: 'relative', top: '-0.4rem' }}>Days</div>
+          </div>
+        </div>
+      </div>
+      <div className="countdown-item-wrapper relative flex flex-col items-center mr-6">
+        <div className="countdown-item relative">
+          <img src="/assets/tile.png" alt="Tile" className="w-16 h-16 sm:w-24 sm:h-24 object-cover" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-amber-100 text-3xl sm:text-5xl md:text-6xl text-center mt-4">
+            <span style={{ position: 'relative', bottom: '-0.1rem' }}>{timeLeft.hours}</span>
+            <div className="text-amber-100 text-xs sm:text-lg md:text-xl mb-10  shadow-lg" style={{ position: 'relative', top: '-0.4rem' }}>Hours</div>
+          </div>
+        </div>
+      </div>
+      <div className="countdown-item-wrapper relative flex flex-col items-center mr-6">
+        <div className="countdown-item relative">
+          <img src="/assets/tile.png" alt="Tile" className="w-16 h-16 sm:w-24 sm:h-24 object-cover" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-amber-100 text-3xl sm:text-5xl md:text-6xl text-center mt-4">
+            <span style={{ position: 'relative', bottom: '-0.1rem' }}>{timeLeft.minutes}</span>
+            <div className="text-amber-100 text-xs sm:text-lg md:text-xl mb-10  shadow-lg" style={{ position: 'relative', top: '-0.4rem' }}>Minutes</div>
+          </div>
+        </div>
+      </div>
+      <div className="countdown-item-wrapper relative flex flex-col items-center">
+        <div className="countdown-item relative">
+          <img src="/assets/tile.png" alt="Tile" className="w-16 h-16 sm:w-24 sm:h-24 object-cover" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-amber-100 text-3xl sm:text-5xl md:text-6xl text-center mt-4">
+            <span style={{ position: 'relative', bottom: '-0.1rem' }}>{timeLeft.seconds}</span>
+            <div className="text-amber-100 text-xs sm:text-lg md:text-lg mb-10 shadow-lg" style={{ position: 'relative', top: '-0.4rem' }}>Seconds</div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div className="countdown-item-wrapper relative flex flex-col items-center mr-6">
-    <div className="countdown-item relative">
-      <img src="/assets/tile.png" alt="Tile" className="w-36 h-36 object-cover" />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-amber-100 text-8xl text-center mt-4 shadow-lg">
-        <span>{timeLeft.hours}</span>
-        <div className="text-amber-100 text-2xl mb-12 shadow-lg">Hours</div>
-      </div>
-    </div>
-  </div>
-  <div className="countdown-item-wrapper relative flex flex-col items-center mr-6">
-    <div className="countdown-item relative">
-      <img src="/assets/tile.png" alt="Tile" className="w-36 h-36 object-cover" />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-amber-100 text-8xl text-center mt-4 shadow-lg">
-        <span>{timeLeft.minutes}</span>
-        <div className="text-amber-100 text-2xl mb-12 shadow-lg">Minutes</div>
-      </div>
-    </div>
-  </div>
-  <div className="countdown-item-wrapper relative flex flex-col items-center mr-6">
-    <div className="countdown-item relative">
-      <img src="/assets/tile.png" alt="Tile" className="w-36 h-36 object-cover" />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-amber-100 text-8xl text-center mt-4 shadow-lg">
-        <span>{timeLeft.seconds}</span>
-        <div className="text-amber-100 text-2xl mb-12 shadow-lg">Seconds</div>
-      </div>
-    </div>
-  </div>
-</div>
-
   );
 };
 
