@@ -10,19 +10,18 @@ import footerbg from "../../../public/assets/footerAssets/footer_bg.png";
 const Footer = () => {
   return (
     <div className="w-full h-auto overflow-hidden">
-      <div className="w-[100%] bg-red-600">
-        <Image
+      <div className="bg-[#A66224] w-full h-[40px] md:h-[100px] lg:h-[130px] xl:h-[180px] bg-[url('/assets/footerAssets/brick_floor2.png')] bg-contain bg-repeat-x bg-center">
+        {/* <Image
           alt="Footer Background Image"
           src="/assets/footerAssets/brick_floor2.png"
           width={1920}
           height={1080}
           // objectFit="cover"
-          // layout="fill"
+          // layout="cover"
           // objectPosition="center"
           // style={{backgroundRepeat: "repeat-x"}}
-          className="bg-repeat-space bg-contain"
-          
-        />
+          className="bg-repeat bg-contain"
+        /> */}
       </div>
       <div className="h-auto w-[100%] flex flex-row relative bg-black">
         <Image
@@ -30,28 +29,28 @@ const Footer = () => {
           src="/assets/footerAssets/2_bushes.png"
           width={120}
           height={100}
-          className="absolute top-0 left-5 md:left:10 w-[70px] md:w-[100px] xl:w-[120px]"
+          className="absolute top-0 left-5 md:left:10 w-[60px] md:w-[100px] xl:w-[120px]"
         />
         <Image
           alt=""
           src="/assets/footerAssets/inverted_mario.png"
           width={50}
           height={100}
-          className="absolute top-0 left-0 ml-[45%] mr-[45%] w-[25px] md:w-[30px] lg:w-[40px]"
+          className="absolute top-0 left-0 ml-[45%] mr-[45%] w-[20px] md:w-[30px] lg:w-[40px]"
         />
         <Image
           alt=""
           src="/assets/footerAssets/plant.png"
           width={50}
           height={50}
-          className="absolute top-0 right-8 md:right-12 xl:right-28 z-10 w-[25px] md:w-[30px] lg:w-[35px]"
+          className="absolute top-0 right-8 md:right-12 xl:right-28 z-10 w-[20px] md:w-[30px] lg:w-[35px]"
         />
         <Image
           alt=""
           src="/assets/footerAssets/triangle_bush.png"
           width={150}
           height={50}
-          className="absolute top-0 right-0 w-[40px] md:w-[70px] lg:w-[90px] xl:w-[150px] "
+          className="absolute top-0 right-0 w-[35px] md:w-[70px] lg:w-[90px] xl:w-[150px] "
         />
       </div>
 
