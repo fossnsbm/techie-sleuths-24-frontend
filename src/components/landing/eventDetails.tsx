@@ -5,51 +5,68 @@ import CoinsRow from '../ui/coins-line';
 import EventDetailsMarquee from '../ui/marquee';
 
 export default function EventDetails() {
-    const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [coinCenterCount, setCoinCenterCount] = useState(1);
+    const [coinSideCount, setCoinSideCount] = useState(1);
 
     useEffect(() => {
-        const handleResize = () => {
-            setIsSmallScreen(window.innerWidth < 1200);
-        };
+        function updateCoinCounts() {
+            const width = window.innerWidth;
+            if (width < 800) {
+                setCoinCenterCount(1);
+                setCoinSideCount(1);
+            } else if (width >= 800 && width < 1560) {
+                setCoinCenterCount(3);
+                setCoinSideCount(3);
+            } else {
+                setCoinCenterCount(5);
+                setCoinSideCount(6);
+            }
+        }
 
-        handleResize();
-
-        window.addEventListener('resize', handleResize);
+        updateCoinCounts();
+        window.addEventListener('resize', updateCoinCounts);
 
         return () => {
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('resize', updateCoinCounts);
         };
     }, []);
 
-    const coinCenterCount = isSmallScreen ? 3 : 5;
-    const coinSideCount = isSmallScreen ? 3 : 6;
-
-    // Set image dimensions based on screen size
-    const imageWidth = isSmallScreen ? 200 : 350;
-    const imageHeight = isSmallScreen ? 250 : 400;
+    const defaultWidth = 200;
+    const defaultHeight = 250;
 
     return (
         <div className="w-full min-h-full bg-slate-900 relative flex flex-col items-center pt-16 pb-16">
             <EventDetailsMarquee />
-            <div className="w-full flex flex-col md:flex-row justify-center items-center pt-36 px-2">
+            <div className="w-full flex flex-col md:flex-row justify-center items-center px-2 gap-6 pt-16">
                 <div className="flex flex-col items-center md:items-start gap-8 pr-12 pl-12">
                     <Image
                         alt="eventDetails"
                         src="/assets/eventDetails.png"
-                        width={imageWidth}
-                        height={imageHeight}
+                        width={defaultWidth}
+                        height={defaultHeight}
+                        className="
+                            sm:w-60 sm:h-75
+                            md:w-72 md:h-90
+                            lg:w-88 lg:h-110
+                        "
                     />
                 </div>
                 <div className="flex flex-col gap-6 items-center md:items-start pr-12 pl-12">
-                    <h1 className="text-8xl leading-none text-center md:text-left">
-                        <span className="text-white">WHAT IS</span>
-                        <span className="block -mt-6 text-amber-400">Techie Sleuths?</span>
+                    <h1 className="text-center md:text-left gap-4 sm:gap-0">
+                        <span className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl px-2">
+                            WHAT IS
+                        </span>
+                        <span
+                            className="block mt-2 sm:mt-0 text-amber-400 text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
+                        >
+                            Techie Sleuths?
+                        </span>
                     </h1>
                     <p
                         className="text-lg text-white font-mono leading-loose text-center md:text-left"
                         style={{
-                        textShadow: '0 0 12px rgba(255, 255, 255, 0.49)',
-                        letterSpacing: '3px',
+                            textShadow: '0 0 12px rgba(255, 255, 255, 0.49)',
+                            letterSpacing: '3px',
                         }}
                     >
                         Lorem ipsum dolor sit amet, consectetur{' '}
@@ -67,7 +84,7 @@ export default function EventDetails() {
                     </p>
                 </div>
             </div>
-            <div className="pt-36 justify-center">
+            <div className="pt-16">
                 <CoinsRow centerCount={coinCenterCount} sideCount={coinSideCount} />
             </div>
         </div>
