@@ -4,6 +4,7 @@ import { ReduxProvider } from "@/store/provider";
 import { Toaster } from "@/components/ui/toaster";
 import { jetbrains, thalehfatFont } from "@/styles/fonts";
 import Footer from "@/components/layout/Footer";
+import NavBar from "@/components/layout/navbar";
 
 export const metadata: Metadata = {
   title: "Techie Sleuths '24",
@@ -21,6 +22,7 @@ export default function RootLayout({
         className={`${jetbrains.variable} ${thalehfatFont.variable} font-sans`}
       >
         <ReduxProvider>
+          <NavBar />
           {children}
           <Footer />
           <Toaster />

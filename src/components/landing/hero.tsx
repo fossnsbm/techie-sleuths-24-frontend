@@ -64,7 +64,7 @@ export default function HeroSection() {
 
         <div className="flex min-h-full items-center sm:flex-row sm:items-center gap-3 mb-10">
           <Button variant="default" size="lg">
-            COMMING SOON !!!
+            COMING SOON !!!
           </Button>
           <Image
             alt="Logo"
