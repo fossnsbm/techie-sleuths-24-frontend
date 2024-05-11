@@ -6,6 +6,8 @@ import NavigationLinks from "@/data/nav/nav";
 import Link from "next/link";
 import { it } from "node:test";
 import { Button, buttonVariants } from "../ui/button";
+import { useState } from "react";
+import NavigationMenuHamburger from "./nav-hamburger";
 
 export default function NavBar() {
   return (
@@ -28,10 +30,16 @@ export default function NavBar() {
                   <div className="hover:">{item.title}</div>
                 </Link>
               ))}
-              <Button className="text-3xl"   size={"lg"}>
-                Regiter{" "}
-              </Button>
+              <Link href="/register">
+                <Button className="text-3xl" size={"lg"}>
+                  Register{" "}
+                </Button>
+              </Link>
             </div>
+          </div>
+
+          <div className="md:hidden">
+            <NavigationMenuHamburger />
           </div>
         </div>
       </Container>
