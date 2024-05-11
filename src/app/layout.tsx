@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import { ReduxProvider } from "@/store/provider";
 import { Toaster } from "@/components/ui/toaster";
 import { jetbrains, thalehfatFont } from "@/styles/fonts";
+import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "Techie Sleuths '24🔎",
@@ -21,6 +22,7 @@ export default function RootLayout({
       >
         <ReduxProvider>
           {children}
+          <Footer />
           <Toaster />
         </ReduxProvider>
       </body>
