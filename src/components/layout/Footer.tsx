@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Link } from "lucide-react";
 import Image from "next/image";
 import Container from "./Container";
 import socialMediaData from "@/data/footer/footerData";
@@ -10,7 +9,7 @@ import footerbg from "../../../public/assets/footerAssets/footer_bg.png";
 const Footer = () => {
   return (
     <div className="w-full h-auto overflow-hidden">
-      <div className="bg-[#A66224] w-full h-[40px] md:h-[100px] lg:h-[130px] xl:h-[180px] bg-[url('/assets/footerAssets/brick_floor2.png')] bg-contain bg-repeat-x bg-center">
+      <div className="bg-[#A66224] w-full h-[40px] md:h-[100px] lg:h-[130px] xl:h-[170px] bg-[url('/assets/footerAssets/brick-gradient.png')] bg-contain bg-repeat-x bg-center">
         {/* <Image
           alt="Footer Background Image"
           src="/assets/footerAssets/brick_floor2.png"
