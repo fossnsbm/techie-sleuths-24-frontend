@@ -23,6 +23,7 @@ export default function RootLayout({
       >
         <ReduxProvider>
           <NavBar />
+
           {children}
           <Footer />
           <Toaster />
