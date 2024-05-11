@@ -6,7 +6,7 @@ import { jetbrains, thalehfatFont } from "@/styles/fonts";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Techie Sleuths '24🔎",
+  title: "Techie Sleuths '24",
   description: "Techie Sleuths | Annual treasure hunt organized by WIF NSBM",
 };
 
