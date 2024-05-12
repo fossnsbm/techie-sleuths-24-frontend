@@ -10,11 +10,12 @@ import { useState } from "react";
 import NavigationMenuHamburger from "./nav-hamburger";
 
 export default function NavBar() {
+  const [activeLink, setActiveLink] = useState();
   return (
     <div className="bg-sky-200">
       <Container>
         <div className="py-8 flex flex-row justify-between ">
-          <div className="md:w-auto w-1/2 flex">
+          <div className="md:w-auto w-1/3 flex">
             <Image
               src="/assets/logos/techie_sleuths_logo_new.png"
               alt="Techie Sleuths"
@@ -27,14 +28,21 @@ export default function NavBar() {
             <div className="flex  gap-10 items-center">
               {NavigationLinks.map((item) => (
                 <Link href={item.link} key={item.id}>
-                  <div className="hover:">{item.title}</div>
+                  <div
+                    onClick={() => setActiveLink(item.id)}
+                    className={` ${
+                      item.id === activeLink
+                        ? buttonVariants({
+                            variant: "default",
+                            size: "lg",
+                          })
+                        : ""
+                    }`}
+                  >
+                    {item.title}
+                  </div>
                 </Link>
               ))}
-              <Link href="/register">
-                <Button className="text-3xl" size={"lg"}>
-                  Register{" "}
-                </Button>
-              </Link>
             </div>
           </div>
 
