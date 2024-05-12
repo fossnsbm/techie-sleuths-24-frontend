@@ -10,7 +10,7 @@ import { useState } from "react";
 import NavigationMenuHamburger from "./nav-hamburger";
 
 export default function NavBar() {
-  const [activeLink, setActiveLink] = useState();
+  const [activeLink, setActiveLink] = useState<number | null>(null);
   return (
     <div className="bg-sky-200">
       <Container>

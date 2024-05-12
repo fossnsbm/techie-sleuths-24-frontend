@@ -10,8 +10,7 @@ export default function NavigationMenuHamburger() {
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
-  const [activeLink, setActiveLink] = useState("/register");
-
+  const [activeLink, setActiveLink] = useState<number | null>(null);
   return (
     <div className="flex flex-col items-end justify-center z-50 p-5">
       <button onClick={handleClick}>
