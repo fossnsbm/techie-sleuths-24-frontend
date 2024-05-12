@@ -17,10 +17,5 @@ const NavigationLinks: INavBar[] = [
     title: "POSTS",
     link: "/posts",
   },
-  {
-    id: 4,
-    title: "REGISTER",
-    link: "/",
-  },
 ];
 export default NavigationLinks;

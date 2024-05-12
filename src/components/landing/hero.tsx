@@ -39,7 +39,7 @@ export default function HeroSection() {
           objectFit="cover"
         />
       </div>
-      <div className="relative min-h-screen z-10 hero-section flex justify-center items-center flex-col">
+      <div className="relative min-h-[75vh] z-10 hero-section flex justify-center items-center flex-col">
         <div className="logo mt-10 mb-5 sm:mt-20 sm:mb-10 md:w-500 md:h-500">
           <Image
             alt="Logo"
