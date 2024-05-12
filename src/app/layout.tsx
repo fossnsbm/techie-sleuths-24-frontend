@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jetbrains.variable} ${thalehfatFont.variable} font-sans`}
+        className={`${jetbrains.variable} ${thalehfatFont.variable} font-sans bg-[#0F172A]`}
       >
         <ReduxProvider>
           <NavBar />
