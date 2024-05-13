@@ -66,18 +66,18 @@ export default function LoginForm() {
   return (
     <>
       <Input
-        className=" transition duration-300 text-[20px] placeholder:text-[#5A270B] text-[#5A270B] mt-5 bg-[#FEF3C7] w-[80%] sm:w-[70%] h-[12%] border-4 border-[#A66224]  drop-shadow-lg hover:shadow-[0px_0px_0px_0px_rgba(0,0,0,0)]  shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-none "
+        className=" transition duration-300 text-2xl placeholder:text-[#5A270B] text-[#5A270B] mt-5 bg-[#FEF3C7] w-[80%] sm:w-[70%] h-[12%] border-4 border-[#5A270B]  drop-shadow-lg hover:shadow-[0px_0px_0px_0px_rgba(0,0,0,0)]  shadow-[6px_6px_0px_0px_rgba(90,39,11,1)]  rounded-none "
         type="email"
         placeholder="TEAM EMAIL*"
         onChange={(e) => setEmail(e.target.value)}
       />
       <div className="w-[80%] sm:w-[70%] flex justify-start items-center mt-1">
         {emailError && (
-          <p className="text-red-500 text-sm text-center">{emailError}</p>
+          <p className="text-red-500 text-xl text-center">{emailError}</p>
         )}
       </div>
       <div className="w-[80%] sm:w-[70%] h-auto flex justify-center items-center relative">
-        <div className="h-[70%] w-[25%] absolute z-10 right-0 bottom-0 flex justify-center items-center">
+        <div className="h-[70%] w-[25%] md:w-[15%] absolute z-10 right-0 bottom-0 flex justify-center items-center">
           <h1
             className="text-[20px] text-[#5A270B] cursor-pointer hover:text-[#A66224] transition duration-300"
             onClick={() => setShowPassword(!showPassword)}
@@ -86,7 +86,7 @@ export default function LoginForm() {
           </h1>
         </div>
         <Input
-          className="transition duration-300 text-[20px] placeholder:text-[#5A270B] pr-[29%] text-[#5A270B] mt-5 bg-[#FEF3C7] w-[100%]  sm:w-[100%] h-[12%] border-4 border-[#A66224]  drop-shadow-lg hover:shadow-[0px_0px_0px_0px_rgba(0,0,0,0)] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-none "
+          className="transition duration-300 text-2xl placeholder:text-[#5A270B] pr-[29%] text-[#5A270B] mt-5 bg-[#FEF3C7] w-[100%]  sm:w-[100%] h-[12%] border-4 border-[#5A270B]  drop-shadow-lg hover:shadow-[0px_0px_0px_0px_rgba(0,0,0,0)] shadow-[6px_6px_0px_0px_rgba(90,39,11,1)]  rounded-none "
           type={showPassword ? "text" : "password"}
           placeholder="PASSWORD*"
           onChange={(e) => setPassword(e.target.value)}
@@ -94,13 +94,13 @@ export default function LoginForm() {
       </div>
       <div className=" w-[80%] sm:w-[70%] flex justify-start items-center mt-1">
         {passwordError && (
-          <p className="text-red-500 text-sm text-center">{passwordError}</p>
+          <p className="text-red-500 text-xl text-center">{passwordError}</p>
         )}
       </div>
 
       <div className="flex text-[#5A270B] my-9 px-3">
         <center>
-          <h1>
+          <h1 className="text-2xl">
             Forget password?{" "}
             <Link
               href="/"
@@ -112,7 +112,7 @@ export default function LoginForm() {
         </center>
       </div>
       <Button
-        className="mt-5"
+        className="mt-5 "
         onClick={handleLogin}
         loading={loading}
         disabled={loading}
