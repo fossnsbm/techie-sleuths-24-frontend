@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const page = () => {
   return (
-    <div className="h-[105vh] sm:h-[115vh] md:h-[120vh] relative">
+    <div className="h-[90vh] sm:h-[90vh] md:h-[100vh] relative ">
       <Image
         alt="Mountains"
         src="/assets/bg-login-img.png"
@@ -15,14 +15,14 @@ const page = () => {
       />
 
       <Container>
-        <div className="w-full h-screen  flex justify-center items-center relative z-10 ">
-          <div className="border-4 border-[#A66224] w-[90%] sm:w-[80%] md:w-[50%] lg:w-[40%] xl:w[30%] 2xl:w-[30%] h-auto p-[10px_0px_50px_0px] drop-shadow-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-[#FEF3C7] flex flex-col items-center">
+        <div className="w-full h-screen  flex justify-center items-start relative z-10  ">
+          <div className="border-8 mt-3 border-[#A66224] w-[100%] sm:w-[100%] md:max-w-5xl lg:w-[80%] xl:w[80%] 2xl:w-[80%] h-auto p-[10px_0px_50px_0px] drop-shadow-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-[#FEF3C7] flex flex-col items-center">
             <div className="w-[10px] h-[10px] bg-[#A66224] absolute left-0 top-0 ml-1 mt-1 drop-shadow-lg shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] "></div>
             <div className="w-[10px] h-[10px] bg-[#A66224] absolute right-0 top-0 mr-1 mt-1 drop-shadow-lg shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"></div>
             <div className="w-[10px] h-[10px] bg-[#A66224] absolute bottom-0 left-0 mb-1 ml-1 drop-shadow-lg shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"></div>
             <div className="w-[10px] h-[10px] bg-[#A66224] absolute bottom-0 right-0 mb-1 mr-1 drop-shadow-lg shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"></div>
             <h1
-              className="text-5xl text-center text-[#FEF3C7]"
+              className="text-6xl md:text-6xl text-center text-[#FEF3C7]"
               style={{
                 WebkitTextStroke: "2px #5A270B",
                 textShadow:
