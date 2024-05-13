@@ -18,11 +18,13 @@ export default function RegisterNowCard() {
           />
           <div className="w-full absolute z-10 flex flex-col gap-8 md:flex-row items-center justify-between lg:px-36 md:px-16">
             <div className="w-full md:w-1/2 uppercase text-base md:text-3xl lg:text-6xl">
-              lorem ipsum dolor sit amet consectetur?
+              Register now for the most awaited Treasure Hunt!
             </div>
             <div className="flex flex-col gap-6 items-center justify-center">
               <Button size="lg">Coming Soon</Button>
-              <div className="md:text-base font-mono text-center">*The registration will be opening soon</div>
+              <div className="md:text-base font-mono text-center">
+                *The registration will be opening soon
+              </div>
             </div>
           </div>
         </div>
