@@ -16,7 +16,8 @@ export default function LoginForm() {
 
   const handleLogin = async () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex = /^.{8,20}$/;
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
     let hasError = false;
 
     if (!email.trim()) {
@@ -36,8 +37,9 @@ export default function LoginForm() {
       console.log("Password is required");
       hasError = true;
     } else if (!passwordRegex.test(password)) {
-      setPasswordError("Password must be between 8 and 20 characters *");
-      console.log("Password must be between 8 and 20 characters");
+      setPasswordError(
+        "Password must be a mix of uppercase, lowercase, numbers, and special characters, and between 8 and 20 characters long *"
+      );
       hasError = true;
     } else {
       setPasswordError("");
