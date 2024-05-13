@@ -74,9 +74,11 @@ const Footer = () => {
                   className="absolute top-10 md:top-80 left-2 md:-left-5"
                 />
                 <p className="my-[10px] text-[#0C4A6E] text-[20px] text-center md:text-left ">
-                  Forem ipsum dolor sit amet, consectetur adipiscing <br />
-                  elit. Nunc vulputate libero et velit interdum, ac <br />
-                  aliquet odio mattis.
+                  Techie Sleuths is a mystery-solving adventure
+                  <br />
+                  game organized by the Women in FOSS. This is tailored
+                  <br />
+                  for newcomers to familiarize themselves with the FOC.
                 </p>
                 <Button
                   type="submit"
@@ -127,12 +129,12 @@ const Footer = () => {
                 {"</>"} with 🖤 by the foss community of NSBM
               </p>
               <Image
-                  alt="cloud"
-                  src="/assets/footerAssets/cloud_inverted.png"
-                  height={7}
-                  width={100}
-                  className="absolute -top-40 right-0 md:-top-20 lg:-top-20 lg:right-40"
-                />
+                alt="cloud"
+                src="/assets/footerAssets/cloud_inverted.png"
+                height={7}
+                width={100}
+                className="absolute -top-40 right-0 md:-top-20 lg:-top-20 lg:right-40"
+              />
             </div>
           </footer>
         </Container>
