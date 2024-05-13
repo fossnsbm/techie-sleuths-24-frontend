@@ -9,13 +9,13 @@ const NavigationLinks: INavBar[] = [
   },
   {
     id: 2,
-    title: "PAST EVENTS",
-    link: "/leaderboard",
+    title: "PUZZLES",
+    link: "/",
   },
   {
     id: 3,
-    title: "POSTS",
-    link: "/posts",
+    title: "LEADERBOARD",
+    link: "/leaderboard",
   },
 ];
 export default NavigationLinks;
