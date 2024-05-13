@@ -1,9 +1,8 @@
 "use client";
+
 import Container from "@/components/layout/Container";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import LoginForm from "@/components/login/LoginForm";
 import Image from "next/image";
-import Link from "next/link";
 
 const page = () => {
   return (
@@ -32,37 +31,7 @@ const page = () => {
             >
               LET&apos;S GO
             </h1>
-            <Input
-              className=" transition duration-300 text-[20px] placeholder:text-[#5A270B] text-[#5A270B] mt-5 bg-[#FEF3C7] w-[80%] sm:w-[70%] h-[12%] border-4 border-[#A66224]  drop-shadow-lg hover:shadow-[0px_0px_0px_0px_rgba(0,0,0,0)]  shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-none "
-              type="email"
-              placeholder="TEAM EMAIL*"
-            />
-            <Input
-              className="transition duration-300 text-[20px] placeholder:text-[#5A270B]  text-[#5A270B] mt-5 bg-[#FEF3C7] w-[80%]  sm:w-[70%] h-[12%] border-4 border-[#A66224]  drop-shadow-lg hover:shadow-[0px_0px_0px_0px_rgba(0,0,0,0)] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-none "
-              type="email"
-              placeholder="PASSWORD*"
-            />
-
-            <div className="flex text-[#5A270B] my-9 px-3">
-              <center>
-                <h1>
-                  Forget password?{" "}
-                  <Link
-                    href="/"
-                    className="underline cursor-pointer hover:text-[#A66224] transition duration-200 active:text-[#A66224] "
-                  >
-                    Get a new one
-                  </Link>
-                </h1>
-              </center>
-            </div>
-            <Button
-              className="mt-5"
-              onClick={() => console.log("Hello")}
-              loading={false}
-            >
-              PLAY
-            </Button>
+            <LoginForm />
           </div>
         </div>
       </Container>
