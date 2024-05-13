@@ -36,7 +36,7 @@ export default function NavBar() {
               ))}
             </div>
             <Link href={"/register"}>
-              <Button variant={"destructive"} className="ml-10">
+              <Button className="ml-10">
                 REGISTER NOW
               </Button>
             </Link>
