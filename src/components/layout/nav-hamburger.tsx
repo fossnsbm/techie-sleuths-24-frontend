@@ -12,7 +12,7 @@ export default function NavigationMenuHamburger() {
   };
   const [activeLink, setActiveLink] = useState<number | null>(null);
   return (
-    <div className="flex flex-col items-end justify-center z-50 p-5">
+    <div className="flex flex-col items-end justify-center z-50 py-16 px-5">
       <button onClick={handleClick}>
         {/* Hamburger icon */}
         <span
@@ -48,13 +48,8 @@ export default function NavigationMenuHamburger() {
             <Link href={item.link} key={item.id}>
               <div
                 onClick={() => setActiveLink(item.id)}
-                className={`block px-6 py-2 text-xl text-sky-900 hover ${
-                  item.id === activeLink
-                    ? buttonVariants({
-                        variant: "default",
-                        size: "lg",
-                      })
-                    : ""
+                className={`block px-6 py-2 text-xl text-sky-900 ${
+                  item.id === activeLink ? "underline" : ""
                 }`}
               >
                 {item.title}
@@ -62,6 +57,10 @@ export default function NavigationMenuHamburger() {
             </Link>
           ))}
         </div>
+
+        <Link href={"/login"}>
+          <Button className="ml-10">LOGIN</Button>
+        </Link>
       </div>
     </div>
   );
