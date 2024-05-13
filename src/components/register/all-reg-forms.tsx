@@ -25,18 +25,49 @@ export default function AllRegForms() {
   const [loading, setLoading] = useState(false);
 
   const formSchema = z.object({
-    team_name: z.string().min(2).max(50),
-    tl_email: z.string().email(),
-    master_password: z.string().min(8).max(50),
-    tl_name: z.string().min(1).max(100),
-    tl_student_id: z.string().min(5).max(5),
-    tl_conatct_number: z.string().min(10).max(10),
-    member2_name: z.string().min(1).max(100),
-    member2_student_id: z.string().min(5).max(5),
-    member3_name: z.string().min(1).max(100).optional(),
-    member3_student_id: z.string().min(5).max(5).optional(),
-    member4_name: z.string().min(1).max(100).optional(),
-    member4_student_id: z.string().min(5).max(5).optional(),
+    team_name: z
+      .string()
+      .min(2)
+      .max(50)
+      .refine((value) => value !== "", "Team name is required"),
+    tl_email: z
+      .string()
+      .email()
+      .refine((value) => value !== "", "Email is required"),
+    master_password: z
+      .string()
+      .min(8)
+      .max(50)
+      .refine((value) => value !== "", "Password is required"),
+    tl_name: z
+      .string()
+      .min(1)
+      .max(100)
+      .refine((value) => value !== "", "Team leader name is required"),
+    tl_student_id: z
+      .string()
+      .min(5)
+      .max(5)
+      .refine((value) => value !== "", "Student ID is required"),
+    tl_conatct_number: z
+      .string()
+      .min(10)
+      .max(10)
+      .refine((value) => value !== "", "Contact number is required"),
+    member2_name: z
+      .string()
+      .min(1)
+      .max(100)
+      .refine((value) => value !== "", "Member name is required"),
+    member2_student_id: z
+      .string()
+      .min(5)
+      .max(5)
+      .refine((value) => value !== "", "Student ID is required"),
+    member3_name: z.string().optional(),
+    member3_student_id: z.string().max(5).optional(),
+    member4_name: z.string().optional(),
+    member4_student_id: z.string().max(5).optional(),
   });
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -91,8 +122,8 @@ export default function AllRegForms() {
         member2_student_id,
         member3_name || "",
         member3_student_id || "",
-        member4_name || "", 
-        member4_student_id || "", 
+        member4_name || "",
+        member4_student_id || ""
       );
       setLoading(false);
       localStorage.setItem("jwtToken", res.token);
@@ -122,7 +153,7 @@ export default function AllRegForms() {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex flex-col items-center justify-center gap-8"
+          className="flex flex-col items-center gap-8 overflow-y-scroll max-h-[600px]"
         >
           <FormField
             control={form.control}
@@ -223,6 +254,9 @@ export default function AllRegForms() {
               </FormItem>
             )}
           />
+          <div className="text-xl md:text-3xl text-[#5A270B] text-center">
+            ***3rd and 4th Members are optional***
+          </div>
           <FormField
             control={form.control}
             name="member3_name"
@@ -271,7 +305,7 @@ export default function AllRegForms() {
               </FormItem>
             )}
           />
-          <Button type="submit" className="mt-10">
+          <Button type="submit" size="lg" className="mt-10">
             Submit
           </Button>
         </form>
