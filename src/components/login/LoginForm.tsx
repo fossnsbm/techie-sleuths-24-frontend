@@ -54,7 +54,6 @@ export default function LoginForm() {
       setPasswordError("");
       const res = await loginTeam(email, password);
       console.log("_res", res);
-      console.log("Logged in successfully");
     } catch (error: any) {
       console.log("Error: ", error.response.data.error);
     } finally {
