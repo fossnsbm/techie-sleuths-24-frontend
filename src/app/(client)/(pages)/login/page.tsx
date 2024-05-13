@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const page = () => {
   return (
-    <div className="h-[90vh] sm:h-[90vh] md:h-[100vh] relative ">
+    <div className="h-[90vh] sm:h-[90vh] md:h-[105vh] relative ">
       <Image
         alt="Mountains"
         src="/assets/bg-login-img.png"
@@ -22,7 +22,7 @@ const page = () => {
             <div className="w-[10px] h-[10px] bg-[#A66224] absolute bottom-0 left-0 mb-1 ml-1 drop-shadow-lg shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"></div>
             <div className="w-[10px] h-[10px] bg-[#A66224] absolute bottom-0 right-0 mb-1 mr-1 drop-shadow-lg shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"></div>
             <h1
-              className="text-6xl md:text-6xl text-center text-[#FEF3C7]"
+              className="text-6xl  text-center text-[#FEF3C7]"
               style={{
                 WebkitTextStroke: "2px #5A270B",
                 textShadow:
