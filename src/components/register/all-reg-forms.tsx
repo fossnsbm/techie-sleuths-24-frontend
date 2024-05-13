@@ -8,10 +8,8 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -305,7 +303,13 @@ export default function AllRegForms() {
               </FormItem>
             )}
           />
-          <Button type="submit" size="lg" className="mt-10">
+          <Button
+            type="submit"
+            size="lg"
+            className="mt-10"
+            loading={loading}
+            disabled={loading}
+          >
             Submit
           </Button>
         </form>
