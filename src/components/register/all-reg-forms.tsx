@@ -27,7 +27,20 @@ export default function AllRegForms() {
   const formSchema = z.object({
     team_name: z.string().min(2).max(50),
     tl_email: z.string().email(),
-    master_password: z.string().min(8).max(50),
+    master_password: z
+      .string()
+      .min(8)
+      .max(50)
+      .refine(
+        (value) =>
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,50}$/.test(
+            value
+          ),
+        {
+          message:
+            "Password must contain at least one uppercase letter, one lowercase letter, one symbol, and one number",
+        }
+      ),
     tl_name: z.string().min(1).max(100),
     tl_student_id: z.string().min(5).max(5),
     tl_conatct_number: z.string().min(10).max(10),
@@ -106,7 +119,7 @@ export default function AllRegForms() {
       toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
-        description: `${error.response.data.message}`,
+        description: `${error.response.data.error}`,
         action: <ToastAction altText="Try again">Try again</ToastAction>,
       });
       setLoading(false);
