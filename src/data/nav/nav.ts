@@ -5,7 +5,7 @@ const NavigationLinks: INavBar[] = [
   {
     id: 1,
     title: "ELIGIBILITY",
-    link: "/",
+    link: "/#eligibility",
   },
   {
     id: 2,

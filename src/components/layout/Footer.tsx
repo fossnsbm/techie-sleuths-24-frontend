@@ -5,6 +5,7 @@ import Image from "next/image";
 import Container from "./Container";
 import socialMediaData from "@/data/footer/footerData";
 import footerbg from "../../../public/assets/footerAssets/footer_bg.png";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -80,13 +81,15 @@ const Footer = () => {
                   <br />
                   for newcomers to familiarize themselves with the FOC.
                 </p>
-                <Button
-                  type="submit"
-                  variant="default"
-                  className="w-[200px] my-[10px]"
-                >
-                  Register Now
-                </Button>
+                <Link href={"/register"} target="_blank">
+                  <Button
+                    type="submit"
+                    variant="default"
+                    className="w-[200px] my-[10px]"
+                  >
+                    Register Now
+                  </Button>
+                </Link>
               </div>
               <div className="h-full w-full md:w-[50%] flex flex-col items-center md:items-end justify-center my-[10px]">
                 {/*Right Container*/}
@@ -107,7 +110,7 @@ const Footer = () => {
                 </div>
                 <div className="w-[150px] h-auto flex flex-row justify-around items-center my-[10px]">
                   {socialMediaData.map(({ platform, url, alt, src }) => (
-                    <a key={platform} href={url}>
+                    <a target="_blank" key={platform} href={url}>
                       <Image alt={alt} src={src} height={20} width={20} />
                     </a>
                   ))}

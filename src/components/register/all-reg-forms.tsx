@@ -180,7 +180,7 @@ export default function AllRegForms() {
             render={({ field }) => (
               <FormItem className={style.formStyle}>
                 <FormControl>
-                  <Input placeholder="TEAM LEADERS'S EMAIL*" {...field} />
+                  <Input placeholder="TEAM LEADERS'S UNIVERSITY EMAIL*" {...field} />
                 </FormControl>
                 <FormMessage className="text-xl" />
               </FormItem>
