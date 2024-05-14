@@ -11,6 +11,7 @@ import {
   FormField,
   FormItem,
   FormMessage,
+  FormDescription,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "../ui/use-toast";
@@ -36,16 +37,7 @@ export default function AllRegForms() {
       .string()
       .min(8)
       .max(50)
-      .refine(
-        (value) =>
-          /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,50}$/.test(
-            value
-          ),
-        {
-          message:
-            "Password must contain at least one uppercase letter, one lowercase letter, one symbol, and one number",
-        }
-      ),
+      .refine((value) => value !== "", "Password is required"),
     tl_name: z
       .string()
       .min(1)
@@ -180,7 +172,10 @@ export default function AllRegForms() {
             render={({ field }) => (
               <FormItem className={style.formStyle}>
                 <FormControl>
-                  <Input placeholder="TEAM LEADERS'S UNIVERSITY EMAIL*" {...field} />
+                  <Input
+                    placeholder="TEAM LEADERS'S UNIVERSITY EMAIL*"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage className="text-xl" />
               </FormItem>
@@ -194,6 +189,10 @@ export default function AllRegForms() {
                 <FormControl>
                   <Input placeholder="TEAM PASSWORD*" {...field} />
                 </FormControl>
+                <FormDescription>
+                  Password must contain at least 8 characters, including
+                  uppercase, lowercase, numbers and special characters.
+                </FormDescription>
                 <FormMessage className="text-xl" />
               </FormItem>
             )}
