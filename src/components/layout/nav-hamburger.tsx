@@ -12,7 +12,7 @@ export default function NavigationMenuHamburger() {
   };
   const [activeLink, setActiveLink] = useState<number | null>(null);
   return (
-    <div className="flex flex-col items-end justify-center z-50 py-16 px-">
+    <div className="flex flex-col items-end justify-center z-50 py-16">
       <button onClick={handleClick}>
         {/* Hamburger icon */}
         <span
