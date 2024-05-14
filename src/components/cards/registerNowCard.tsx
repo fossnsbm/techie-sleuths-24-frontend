@@ -26,7 +26,7 @@ export default function RegisterNowCard() {
                 <Button size="lg">Register now</Button>
               </Link>
               <div className="md:text-base font-mono text-center">
-                *The registration will be opening soon
+                *The game will start soon!
               </div>
             </div>
           </div>
