@@ -36,7 +36,7 @@ export default function NavBar() {
               ))}
             </div>
             <Link href={"/register"}>
-              <Button className="ml-10 text-2xl">REGISTER</Button>
+              <Button className="ml-10 text-2xl">REGISTER NOW</Button>
             </Link>
           </div>
 

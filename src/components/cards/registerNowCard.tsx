@@ -4,6 +4,7 @@ import React from "react";
 import Container from "../layout/Container";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export default function RegisterNowCard() {
   return (
@@ -21,7 +22,9 @@ export default function RegisterNowCard() {
               Register now for the most awaited Treasure Hunt!
             </div>
             <div className="flex flex-col gap-6 items-center justify-center">
-              <Button size="lg">Coming Soon</Button>
+              <Link href="/register">
+                <Button size="lg">Register now</Button>
+              </Link>
               <div className="md:text-base font-mono text-center">
                 *The registration will be opening soon
               </div>

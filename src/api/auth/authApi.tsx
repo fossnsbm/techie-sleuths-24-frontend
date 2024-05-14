@@ -1,7 +1,7 @@
 import axios from "axios";
 import { REGISTER_URL, LOGIN_URL } from "../api-urls";
 
-const BASE_URL = "https://techiesleuths-backend-webapp-prod.azurewebsites.net/api/v1";
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 axios.defaults.baseURL = BASE_URL;
 
@@ -45,10 +45,7 @@ export const registerTeam = async (
   }
 };
 
-export const loginTeam = async (
-  email: string,
-  password: string,
-) => {
+export const loginTeam = async (email: string, password: string) => {
   try {
     const response = await axios({
       method: "POST",
@@ -56,13 +53,13 @@ export const loginTeam = async (
       url: LOGIN_URL,
       data: {
         team_leader_email: email,
-        password: password
-      }
-    })
+        password: password,
+      },
+    });
 
-    return response.data
+    return response.data;
   } catch (error) {
-    console.error(error)
-    throw error
+    console.error(error);
+    throw error;
   }
-}
+};

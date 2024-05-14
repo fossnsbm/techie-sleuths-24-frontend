@@ -68,7 +68,10 @@ function RulesSectionRule(rule: Rule) {
 
 function RulesSection() {
   return (
-    <section className="text-white flex flex-col justify-center items-center">
+    <section
+      id="eligibility"
+      className="text-white flex flex-col justify-center items-center"
+    >
       <div className="py-16 px-12 w-full max-w-[1200px] flex flex-col gap-10">
         <div className="text-center md:text-left text-5xl md:text-6xl lg:text-7xl">
           <label className="" style={{ lineHeight: "36px" }}>

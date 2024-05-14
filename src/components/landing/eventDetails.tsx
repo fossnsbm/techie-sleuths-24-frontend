@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import CoinsRow from "../ui/coins-line";
 import EventDetailsMarquee from "../ui/marquee";
+import Link from "next/link";
 
 export default function EventDetails() {
   const [coinCenterCount, setCoinCenterCount] = useState(1);
@@ -77,9 +78,11 @@ export default function EventDetails() {
             <br />
             with our Faculty of Computing.
           </p>
-          <p className="text-3xl text-white cursor-pointer flex items-center text-center md:text-left">
-            View past events <span className="ml-2">{">"}</span>
-          </p>
+          <Link href="https://web.facebook.com/wifnsbm" target="_blank">
+            <p className="text-3xl text-white cursor-pointer flex items-center text-center md:text-left">
+              View past events <span className="ml-2">{">"}</span>
+            </p>
+          </Link>
         </div>
       </div>
       <div className="pt-16">
