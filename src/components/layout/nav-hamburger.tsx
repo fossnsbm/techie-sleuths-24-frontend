@@ -58,8 +58,8 @@ export default function NavigationMenuHamburger() {
           ))}
         </div>
 
-        <Link href={"/login"}>
-          <Button className="ml-10">LOGIN</Button>
+        <Link href={"/register"}>
+          <Button className="ml-10">REGISTER</Button>
         </Link>
       </div>
     </div>
