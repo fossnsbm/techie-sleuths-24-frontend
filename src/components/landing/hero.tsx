@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Countdown from "@/app/(client)/(pages)/underdev/_components/countdown";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function HeroSection() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -63,9 +64,11 @@ export default function HeroSection() {
         </h1>
 
         <div className="flex min-h-full items-center sm:flex-row sm:items-center gap-3 mb-10">
-          <Button variant="default" size="lg">
-            COMING SOON !!!
-          </Button>
+          <Link href={"/register"}>
+            <Button variant="default" size="lg" className="text-2xl">
+              REGISTER NOW
+            </Button>
+          </Link>
           <Image
             alt="Logo"
             src="/assets/question-box.png"

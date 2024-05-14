@@ -8,10 +8,8 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -25,15 +23,22 @@ export default function AllRegForms() {
   const [loading, setLoading] = useState(false);
 
   const formSchema = z.object({
-    team_name: z.string().min(2).max(50),
-    tl_email: z.string().email(),
+    team_name: z
+      .string()
+      .min(2)
+      .max(50)
+      .refine((value) => value !== "", "Team name is required"),
+    tl_email: z
+      .string()
+      .email()
+      .refine((value) => value !== "", "Email is required"),
     master_password: z
       .string()
       .min(8)
       .max(50)
       .refine(
         (value) =>
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,50}$/.test(
+          /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,50}$/.test(
             value
           ),
         {
@@ -41,15 +46,35 @@ export default function AllRegForms() {
             "Password must contain at least one uppercase letter, one lowercase letter, one symbol, and one number",
         }
       ),
-    tl_name: z.string().min(1).max(100),
-    tl_student_id: z.string().min(5).max(5),
-    tl_conatct_number: z.string().min(10).max(10),
-    member2_name: z.string().min(1).max(100),
-    member2_student_id: z.string().min(5).max(5),
-    member3_name: z.string().min(1).max(100).optional(),
-    member3_student_id: z.string().min(5).max(5).optional(),
-    member4_name: z.string().min(1).max(100).optional(),
-    member4_student_id: z.string().min(5).max(5).optional(),
+    tl_name: z
+      .string()
+      .min(1)
+      .max(100)
+      .refine((value) => value !== "", "Team leader name is required"),
+    tl_student_id: z
+      .string()
+      .min(5)
+      .max(5)
+      .refine((value) => value !== "", "Student ID is required"),
+    tl_conatct_number: z
+      .string()
+      .min(10)
+      .max(10)
+      .refine((value) => value !== "", "Contact number is required"),
+    member2_name: z
+      .string()
+      .min(1)
+      .max(100)
+      .refine((value) => value !== "", "Member name is required"),
+    member2_student_id: z
+      .string()
+      .min(5)
+      .max(5)
+      .refine((value) => value !== "", "Student ID is required"),
+    member3_name: z.string().optional(),
+    member3_student_id: z.string().max(5).optional(),
+    member4_name: z.string().optional(),
+    member4_student_id: z.string().max(5).optional(),
   });
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -104,8 +129,8 @@ export default function AllRegForms() {
         member2_student_id,
         member3_name || "",
         member3_student_id || "",
-        member4_name || "", 
-        member4_student_id || "", 
+        member4_name || "",
+        member4_student_id || ""
       );
       setLoading(false);
       localStorage.setItem("jwtToken", res.token);
@@ -135,7 +160,7 @@ export default function AllRegForms() {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex flex-col items-center justify-center gap-8"
+          className="flex flex-col items-center gap-8 overflow-y-scroll max-h-[600px]"
         >
           <FormField
             control={form.control}
@@ -155,7 +180,10 @@ export default function AllRegForms() {
             render={({ field }) => (
               <FormItem className={style.formStyle}>
                 <FormControl>
-                  <Input placeholder="TEAM LEADERS'S EMAIL*" {...field} />
+                  <Input
+                    placeholder="TEAM LEADERS'S UNIVERSITY EMAIL*"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage className="text-xl" />
               </FormItem>
@@ -203,10 +231,7 @@ export default function AllRegForms() {
             render={({ field }) => (
               <FormItem className={style.formStyle}>
                 <FormControl>
-                  <Input
-                    placeholder="TEAM LEADER'S CONTACT NUMBER*"
-                    {...field}
-                  />
+                  <Input placeholder="TEAM LEADER'S CONTACT NO*" {...field} />
                 </FormControl>
                 <FormMessage className="text-xl" />
               </FormItem>
@@ -236,6 +261,9 @@ export default function AllRegForms() {
               </FormItem>
             )}
           />
+          <div className="text-xl md:text-3xl text-[#5A270B] text-center">
+            ***3rd and 4th Members are optional***
+          </div>
           <FormField
             control={form.control}
             name="member3_name"
@@ -284,7 +312,11 @@ export default function AllRegForms() {
               </FormItem>
             )}
           />
-          <Button type="submit" className="mt-10">
+          <div className="text-xl md:text-3xl text-[#5A270B] text-center px-1">
+            ***Please read the rules and regulations before you get
+            registered***
+          </div>
+          <Button type="submit" size="lg" loading={loading} disabled={loading}>
             Submit
           </Button>
         </form>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Container from "./Container";
 import socialMediaData from "@/data/footer/footerData";
 import footerbg from "../../../public/assets/footerAssets/footer_bg.png";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -74,17 +75,21 @@ const Footer = () => {
                   className="absolute top-10 md:top-80 left-2 md:-left-5"
                 />
                 <p className="my-[10px] text-[#0C4A6E] text-[20px] text-center md:text-left ">
-                  Forem ipsum dolor sit amet, consectetur adipiscing <br />
-                  elit. Nunc vulputate libero et velit interdum, ac <br />
-                  aliquet odio mattis.
+                  Techie Sleuths is a mystery-solving adventure
+                  <br />
+                  game organized by the Women in FOSS. This is tailored
+                  <br />
+                  for newcomers to familiarize themselves with the FOC.
                 </p>
-                <Button
-                  type="submit"
-                  variant="default"
-                  className="w-[200px] my-[10px]"
-                >
-                  Register Now
-                </Button>
+                <Link href={"/register"} target="_blank">
+                  <Button
+                    type="submit"
+                    variant="default"
+                    className="w-[200px] my-[10px]"
+                  >
+                    Register Now
+                  </Button>
+                </Link>
               </div>
               <div className="h-full w-full md:w-[50%] flex flex-col items-center md:items-end justify-center my-[10px]">
                 {/*Right Container*/}
@@ -105,7 +110,7 @@ const Footer = () => {
                 </div>
                 <div className="w-[150px] h-auto flex flex-row justify-around items-center my-[10px]">
                   {socialMediaData.map(({ platform, url, alt, src }) => (
-                    <a key={platform} href={url}>
+                    <a target="_blank" key={platform} href={url}>
                       <Image alt={alt} src={src} height={20} width={20} />
                     </a>
                   ))}
@@ -127,12 +132,12 @@ const Footer = () => {
                 {"</>"} with 🖤 by the foss community of NSBM
               </p>
               <Image
-                  alt="cloud"
-                  src="/assets/footerAssets/cloud_inverted.png"
-                  height={7}
-                  width={100}
-                  className="absolute -top-40 right-0 md:-top-20 lg:-top-20 lg:right-40"
-                />
+                alt="cloud"
+                src="/assets/footerAssets/cloud_inverted.png"
+                height={7}
+                width={100}
+                className="absolute -top-40 right-0 md:-top-20 lg:-top-20 lg:right-40"
+              />
             </div>
           </footer>
         </Container>
