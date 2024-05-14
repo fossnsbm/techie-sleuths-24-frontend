@@ -36,7 +36,16 @@ export default function AllRegForms() {
       .string()
       .min(8)
       .max(50)
-      .refine((value) => value !== "", "Password is required"),
+      .refine(
+        (value) =>
+          /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,50}$/.test(
+            value
+          ),
+        {
+          message:
+            "Password must contain at least one uppercase letter, one lowercase letter, one symbol, and one number",
+        }
+      ),
     tl_name: z
       .string()
       .min(1)
@@ -135,7 +144,7 @@ export default function AllRegForms() {
       toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
-        description: `${error.response.data.message}`,
+        description: `${error.response.data.error}`,
         action: <ToastAction altText="Try again">Try again</ToastAction>,
       });
       setLoading(false);
@@ -219,10 +228,7 @@ export default function AllRegForms() {
             render={({ field }) => (
               <FormItem className={style.formStyle}>
                 <FormControl>
-                  <Input
-                    placeholder="TEAM LEADER'S CONTACT NO*"
-                    {...field}
-                  />
+                  <Input placeholder="TEAM LEADER'S CONTACT NO*" {...field} />
                 </FormControl>
                 <FormMessage className="text-xl" />
               </FormItem>
@@ -304,14 +310,10 @@ export default function AllRegForms() {
             )}
           />
           <div className="text-xl md:text-3xl text-[#5A270B] text-center px-1">
-            ***Please read the rules and regulations before you get registered***
+            ***Please read the rules and regulations before you get
+            registered***
           </div>
-          <Button
-            type="submit"
-            size="lg"
-            loading={loading}
-            disabled={loading}
-          >
+          <Button type="submit" size="lg" loading={loading} disabled={loading}>
             Submit
           </Button>
         </form>
