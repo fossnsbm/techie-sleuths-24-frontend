@@ -220,7 +220,7 @@ export default function AllRegForms() {
               <FormItem className={style.formStyle}>
                 <FormControl>
                   <Input
-                    placeholder="TEAM LEADER'S CONTACT NUMBER*"
+                    placeholder="TEAM LEADER'S CONTACT NO*"
                     {...field}
                   />
                 </FormControl>
@@ -303,10 +303,12 @@ export default function AllRegForms() {
               </FormItem>
             )}
           />
+          <div className="text-xl md:text-3xl text-[#5A270B] text-center px-1">
+            ***Please read the rules and regulations before you get registered***
+          </div>
           <Button
             type="submit"
             size="lg"
-            className="mt-10"
             loading={loading}
             disabled={loading}
           >
