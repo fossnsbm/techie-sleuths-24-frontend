@@ -38,7 +38,7 @@ export default function AllRegForms() {
       .max(50)
       .refine(
         (value) =>
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,50}$/.test(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&*+-_#])[A-Za-z\d@$!%?&*+-_#]{8,50}$/.test(
             value
           ),
         {
@@ -180,10 +180,7 @@ export default function AllRegForms() {
             render={({ field }) => (
               <FormItem className={style.formStyle}>
                 <FormControl>
-                  <Input
-                    placeholder="TEAM LEADERS'S UNIVERSITY EMAIL*"
-                    {...field}
-                  />
+                  <Input placeholder="TEAM LEADERS'S NSBM MAIL*" {...field} />
                 </FormControl>
                 <FormMessage className="text-xl" />
               </FormItem>
