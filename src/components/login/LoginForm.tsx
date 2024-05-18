@@ -38,7 +38,7 @@ export default function LoginForm() {
       hasError = true;
     } else if (!passwordRegex.test(password)) {
       setPasswordError(
-        "Password must be a mix of uppercase, lowercase, numbers, and special characters, and between 8 and 20 characters long *"
+        "Password must be a mix of uppercase, lowercase, numbers, and special characters, and between 8 and 20 characters long *",
       );
       hasError = true;
     } else {

@@ -1,3 +1,27 @@
 #!/usr/bin/env sh
 
-yarn build
+node --version
+
+SUPPORTED_PKG_MGRS="pnpm yarn npm"
+
+PKG_MGR=""
+
+for pm in $SUPPORTED_PKG_MGRS; do
+    if command -v "$pm" >/dev/null; then
+        PKG_MGR="$pm"
+        break
+    fi
+done
+
+if [ "$PKG_MGR" = "pnpm" ]; then
+    pnpm run prettier
+    pnpm run build
+elif [ "$PKG_MGR" = "yarn" ]; then
+    yarn run prettier
+    yarn run build
+elif [ "$PKG_MGR" = "npm" ]; then
+    npm run prettier
+    npm run build
+else
+    echo "Unsupported package manager: $PKG_MGR"
+fi

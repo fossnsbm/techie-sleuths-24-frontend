@@ -1,9 +1,9 @@
 "use client";
 
 const Container = ({ children }: { children: React.ReactNode }) => {
-    return (
-        <div
-            className={`
+  return (
+    <div
+      className={`
             relative
             max-w-[1500px]
             mx-auto
@@ -12,10 +12,10 @@ const Container = ({ children }: { children: React.ReactNode }) => {
             sm:px-10
             px-6
         `}
-        >
-            {children}
-        </div>
-    );
+    >
+      {children}
+    </div>
+  );
 };
 
 export default Container;

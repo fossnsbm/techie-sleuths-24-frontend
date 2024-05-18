@@ -32,7 +32,7 @@ export default function Page() {
         </h1>
         <QuestionBox />
       </div>
-      <HeroSection/>
+      <HeroSection />
     </div>
   );
 }

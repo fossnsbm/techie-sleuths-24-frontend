@@ -79,18 +79,18 @@ function CluePage({ params }: { params: { key: string } }) {
   };
 
   return (
-    <div className='w-full min-h-screen relative'>
-      <div className='absolute inset-0 bg-slate-900'>
+    <div className="w-full min-h-screen relative">
+      <div className="absolute inset-0 bg-slate-900">
         <Image
-          alt='Mountains'
-          src='/assets/bg-img.webp'
-          layout='fill'
-          objectFit='cover'
+          alt="Mountains"
+          src="/assets/bg-img.webp"
+          layout="fill"
+          objectFit="cover"
         />
       </div>
 
-      <div className='relative z-10 min-h-[75vh] gird place-content-center w-full'>
-        <div className='relative mx-7 md:max-w-3xl md:mx-auto bg-[#FEF3C7] p-10 border-8 border-[#A66224] drop-shadow-xl flex justify-center items-center flex-col text-2xl '>
+      <div className="relative z-10 min-h-[75vh] gird place-content-center w-full">
+        <div className="relative mx-7 md:max-w-3xl md:mx-auto bg-[#FEF3C7] p-10 border-8 border-[#A66224] drop-shadow-xl flex justify-center items-center flex-col text-2xl ">
           {/* deco */}
           <>
             <div
@@ -116,11 +116,11 @@ function CluePage({ params }: { params: { key: string } }) {
           ) : (
             <>
               {cheatBanner ? (
-                <label className='text-red-600 w-full text-center'>
+                <label className="text-red-600 w-full text-center">
                   {cheatBannerText}
                 </label>
               ) : (
-                <h1 className='text-center'>
+                <h1 className="text-center">
                   {clue ? <>Clue: {clue.clue}</> : <>Clue not found</>}
                 </h1>
               )}

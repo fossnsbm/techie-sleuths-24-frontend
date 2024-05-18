@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function LeaderboardPage() {
-    return (
-        <div>Leaderboard</div>
-    )
+  return <div>Leaderboard</div>;
 }

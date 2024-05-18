@@ -17,7 +17,7 @@ export default function Home() {
       <EventDetails />
       <RulesSection />
 
-      <div className='hidden md:block'>
+      <div className="hidden md:block">
         <RegisterNowCard />
       </div>
     </div>

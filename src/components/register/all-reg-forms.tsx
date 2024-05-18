@@ -39,12 +39,12 @@ export default function AllRegForms() {
       .refine(
         (value) =>
           /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&*+-_#])[A-Za-z\d@$!%?&*+-_#]{8,50}$/.test(
-            value
+            value,
           ),
         {
           message:
             "Password must contain at least one uppercase letter, one lowercase letter, one symbol, and one number",
-        }
+        },
       ),
     tl_name: z
       .string()
@@ -130,7 +130,7 @@ export default function AllRegForms() {
         member3_name || "",
         member3_student_id || "",
         member4_name || "",
-        member4_student_id || ""
+        member4_student_id || "",
       );
       setLoading(false);
       localStorage.setItem("jwtToken", res.token);

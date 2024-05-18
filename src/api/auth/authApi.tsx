@@ -19,7 +19,7 @@ export const registerTeam = async (
   member4_name: string,
   member4_student_id: string,
   anti_spam_question: boolean = true,
-  anti_spam_question_description: string = "What is the capital of India?"
+  anti_spam_question_description: string = "What is the capital of India?",
 ) => {
   try {
     const response = await axios.post(REGISTER_URL, {
