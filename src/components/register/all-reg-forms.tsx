@@ -158,11 +158,11 @@ export default function AllRegForms() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto mt-10">
+    <div className="mx-auto mt-10 max-w-4xl">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex flex-col items-center gap-8 overflow-y-scroll max-h-[600px]"
+          className="flex max-h-[600px] flex-col items-center gap-8 overflow-y-scroll"
         >
           <FormField
             control={form.control}
@@ -260,7 +260,7 @@ export default function AllRegForms() {
               </FormItem>
             )}
           />
-          <div className="text-xl md:text-3xl text-[#5A270B] text-center">
+          <div className="text-center text-xl text-[#5A270B] md:text-3xl">
             ***3rd and 4th Members are optional***
           </div>
           <FormField
@@ -311,7 +311,7 @@ export default function AllRegForms() {
               </FormItem>
             )}
           />
-          <div className="text-xl md:text-3xl text-[#5A270B] text-center px-1">
+          <div className="px-1 text-center text-xl text-[#5A270B] md:text-3xl">
             ***Please read the rules and regulations before you get
             registered***
           </div>

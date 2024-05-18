@@ -33,9 +33,9 @@ function RulesSectionRule(rule: Rule) {
   }, []);
   return (
     <div>
-      <div className="text-2xl lg:text-[48px] flex flex-row items-center justify-between">
+      <div className="flex flex-row items-center justify-between text-2xl lg:text-[48px]">
         <div className="text-nowrap bg-slate-900 pr-3">{rule.title}</div>
-        <div className="hidden md:block w-full tracking-widest">
+        <div className="hidden w-full tracking-widest md:block">
           ..............................................................
         </div>
         <div className="bg-slate-900">
@@ -43,7 +43,7 @@ function RulesSectionRule(rule: Rule) {
             <Image alt="Logo" src="/assets/tile.png" layout="fill" />
 
             <label
-              className="absolute z-10 text-amber-100 text-[42px] left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]"
+              className="absolute left-1/2 top-1/2 z-10 translate-x-[-50%] translate-y-[-50%] text-[42px] text-amber-100"
               style={{
                 textShadow: isSmallScreen
                   ? "3px 3px #78350F"
@@ -56,7 +56,7 @@ function RulesSectionRule(rule: Rule) {
         </div>
       </div>
 
-      <div className="pl-0 lg:pl-10 py-4 flex flex-col gap-3">
+      <div className="flex flex-col gap-3 py-4 pl-0 lg:pl-10">
         {rule.description?.map((desc, index) => (
           <p className="font-mono font-bold text-white/75" key={index}>
             [+] {desc}
@@ -71,10 +71,10 @@ function RulesSection() {
   return (
     <section
       id="eligibility"
-      className="text-white flex flex-col justify-center items-center"
+      className="flex flex-col items-center justify-center text-white"
     >
-      <div className="py-16 px-12 w-full max-w-[1200px] flex flex-col gap-10">
-        <div className="text-center md:text-left text-5xl md:text-6xl lg:text-7xl">
+      <div className="flex w-full max-w-[1200px] flex-col gap-10 px-12 py-16">
+        <div className="text-center text-5xl md:text-left md:text-6xl lg:text-7xl">
           <label className="" style={{ lineHeight: "36px" }}>
             Contest
           </label>

@@ -14,7 +14,7 @@ export default function EventDetailsMarquee() {
           className="flex flex-row items-center gap-4 opacity-25"
         >
           <h1
-            className="text-sky-50 text-9xl"
+            className="text-9xl text-sky-50"
             style={{
               textShadow:
                 "4px 4px 0 #000, -4px -4px 0 #000, 4px -4px 0 #000, -4px 4px 0 #000",
@@ -22,7 +22,7 @@ export default function EventDetailsMarquee() {
           >
             COMING SOON
           </h1>
-          <div className="flex justify-center items-center">
+          <div className="flex items-center justify-center">
             <Image alt="mush" src="/assets/mush.png" width={100} height={50} />
           </div>
         </div>

@@ -6,7 +6,7 @@ import EventDetailsMarquee from "@/components/ui/marquee";
 export default function RegisterPage() {
   return (
     <div>
-      <div className="w-full min-h-screen relative">
+      <div className="relative min-h-screen w-full">
         <div className="absolute inset-0 bg-slate-900">
           <Image
             alt="Mountains"

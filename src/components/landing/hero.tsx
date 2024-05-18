@@ -34,7 +34,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <div className="w-full min-h-screen relative">
+    <div className="relative min-h-screen w-full">
       <div className="absolute inset-0 bg-slate-900">
         <Image
           alt="Mountains"
@@ -43,8 +43,8 @@ export default function HeroSection() {
           objectFit="cover"
         />
       </div>
-      <div className="relative min-h-[75vh] z-10 hero-section flex justify-center items-center flex-col">
-        <div className="logo mt-10 mb-5 sm:mt-20 sm:mb-10 md:w-500 md:h-500">
+      <div className="hero-section relative z-10 flex min-h-[75vh] flex-col items-center justify-center">
+        <div className="logo md:w-500 md:h-500 mb-5 mt-10 sm:mb-10 sm:mt-20">
           <Image
             alt="Logo"
             src="/assets/logo (with year) 1.png"
@@ -55,7 +55,7 @@ export default function HeroSection() {
         <Countdown />
 
         <h1
-          className="text-black font-bold mb-4 text-center text-2xl md:text-3xl"
+          className="mb-4 text-center text-2xl font-bold text-black md:text-3xl"
           style={{
             textShadow:
               "2px 2px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff",
@@ -66,7 +66,7 @@ export default function HeroSection() {
           <span className="text-blue-500">it&apos;s different!</span>
         </h1>
 
-        <div className="flex min-h-full items-center sm:flex-row sm:items-center gap-3 mb-10">
+        <div className="mb-10 flex min-h-full items-center gap-3 sm:flex-row sm:items-center">
           <Link href={"/register"}>
             <Button variant="default" size="lg" className="text-2xl">
               REGISTER NOW

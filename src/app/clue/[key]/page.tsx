@@ -79,7 +79,7 @@ function CluePage({ params }: { params: { key: string } }) {
   };
 
   return (
-    <div className="w-full min-h-screen relative">
+    <div className="relative min-h-screen w-full">
       <div className="absolute inset-0 bg-slate-900">
         <Image
           alt="Mountains"
@@ -89,13 +89,13 @@ function CluePage({ params }: { params: { key: string } }) {
         />
       </div>
 
-      <div className="relative z-10 min-h-[75vh] gird place-content-center w-full">
-        <div className="relative  md:max-w-3xl mx-7 md:mx-auto bg-[#FEF3C7] p-10 border-8 border-[#A66224] drop-shadow-xl flex justify-center items-center flex-col text-2xl ">
+      <div className="gird relative z-10 min-h-[75vh] w-full place-content-center">
+        <div className="relative  mx-7 flex flex-col items-center justify-center border-8 border-[#A66224] bg-[#FEF3C7] p-10 text-2xl drop-shadow-xl md:mx-auto md:max-w-3xl ">
           {/* deco */}
           <>
             <div
               style={{ boxShadow: style.boxShadowLittle }}
-              className={`top-2 left-2 ${style.littleBoxStyle}`}
+              className={`left-2 top-2 ${style.littleBoxStyle}`}
             />
             <div
               style={{ boxShadow: style.boxShadowLittle }}
@@ -107,7 +107,7 @@ function CluePage({ params }: { params: { key: string } }) {
             />
             <div
               style={{ boxShadow: style.boxShadowLittle }}
-              className={`right-2 bottom-2 ${style.littleBoxStyle}`}
+              className={`bottom-2 right-2 ${style.littleBoxStyle}`}
             />
           </>
 
@@ -116,7 +116,7 @@ function CluePage({ params }: { params: { key: string } }) {
           ) : (
             <>
               {cheatBanner ? (
-                <label className="text-red-600 w-full text-center">
+                <label className="w-full text-center text-red-600">
                   {cheatBannerText}
                 </label>
               ) : (

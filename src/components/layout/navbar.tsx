@@ -16,8 +16,8 @@ export default function NavBar() {
   return (
     <div className="bg-sky-200">
       <Container>
-        <div className="min-h-[15vh] flex flex-row justify-between ">
-          <Link href={"/"} className="md:w-auto w-1/3 flex items-center">
+        <div className="flex min-h-[15vh] flex-row justify-between ">
+          <Link href={"/"} className="flex w-1/3 items-center md:w-auto">
             <Image
               src="/assets/logos/techie_sleuths_logo_new.png"
               alt="Techie Sleuths"
@@ -26,8 +26,8 @@ export default function NavBar() {
             />
           </Link>
 
-          <div className="md:flex items-center lg:text-3xl text-2xl hidden text-sky-900 ">
-            <div className="flex  gap-10 items-center">
+          <div className="hidden items-center text-2xl text-sky-900 md:flex lg:text-3xl ">
+            <div className="flex  items-center gap-10">
               {NavigationLinks.map((item) => (
                 <Link href={item.link} key={item.id}>
                   <div

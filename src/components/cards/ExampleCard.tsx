@@ -17,8 +17,8 @@ export default function ExampleCard() {
       <div>
         {teamName !== "" ? (
           <>
-            <h2 className="text-gray-700 text-lg lg:text-2xl">Welcome</h2>
-            <h1 className="text-4xl lg:text-8xl font-bold">{teamName}</h1>
+            <h2 className="text-lg text-gray-700 lg:text-2xl">Welcome</h2>
+            <h1 className="text-4xl font-bold lg:text-8xl">{teamName}</h1>
           </>
         ) : null}
       </div>

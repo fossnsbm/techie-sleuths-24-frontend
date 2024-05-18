@@ -19,15 +19,15 @@ export default function RegisterNowCard() {
             height={100}
             alt="Register Now"
           />
-          <div className="w-full absolute z-10 flex flex-col gap-8 md:flex-row items-center justify-between lg:px-36 md:px-16">
-            <div className="w-full md:w-1/2 uppercase text-base md:text-3xl lg:text-6xl">
+          <div className="absolute z-10 flex w-full flex-col items-center justify-between gap-8 md:flex-row md:px-16 lg:px-36">
+            <div className="w-full text-base uppercase md:w-1/2 md:text-3xl lg:text-6xl">
               Register now for the most awaited Treasure Hunt!
             </div>
-            <div className="flex flex-col gap-6 items-center justify-center">
+            <div className="flex flex-col items-center justify-center gap-6">
               <Link href="/register">
                 <Button size="lg">Register now</Button>
               </Link>
-              <div className="md:text-base font-mono text-center">
+              <div className="text-center font-mono md:text-base">
                 *The game will start soon!
               </div>
             </div>

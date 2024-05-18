@@ -56,9 +56,9 @@ export default function ExampleForm() {
 
   return (
     <Container>
-      <div className="flex justify-center items-center w-full">
+      <div className="flex w-full items-center justify-center">
         {teamName === "" ? (
-          <div className="border px-5 py-8 border-gray-400 rounded-lg">
+          <div className="rounded-lg border border-gray-400 px-5 py-8">
             <h1 className="py-2 text-2xl font-semibold">
               Techie Sleuths &apos;24🔎
             </h1>
@@ -83,7 +83,7 @@ export default function ExampleForm() {
                     </FormItem>
                   )}
                 />
-                <div className="flex flex-col md:flex-row gap-4">
+                <div className="flex flex-col gap-4 md:flex-row">
                   <Button type="submit" variant="default">
                     Register Now
                   </Button>

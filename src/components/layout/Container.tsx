@@ -5,12 +5,12 @@ const Container = ({ children }: { children: React.ReactNode }) => {
     <div
       className={`
             relative
-            max-w-[1500px]
             mx-auto
-            xl:px-20
-            md:px-10
-            sm:px-10
+            max-w-[1500px]
             px-6
+            sm:px-10
+            md:px-10
+            xl:px-20
         `}
     >
       {children}
