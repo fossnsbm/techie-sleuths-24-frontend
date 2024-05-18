@@ -25,7 +25,7 @@ export default function Page() {
               "2px 2px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff",
           }}
         >
-          The Leaderboard will be available when the event starts!
+          The Crossword will be available when the event starts!
         </h1>
         <QuestionBox />
       </div>
