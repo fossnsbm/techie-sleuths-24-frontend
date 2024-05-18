@@ -1,11 +1,13 @@
+import type { Metadata } from "next";
+
+import { ReduxProvider } from "@/store/provider";
+
 import Footer from "@/components/layout/Footer";
 import NavBar from "@/components/layout/navbar";
 import { Toaster } from "@/components/ui/toaster";
-import { ReduxProvider } from "@/store/provider";
+
 import { jetbrains, thalehfatFont } from "@/styles/fonts";
 import "@/styles/globals.css";
-
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Techie Sleuths '24",
@@ -20,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jetbrains.variable} ${thalehfatFont.variable} font-sans bg-[#0F172A]`}
+        className={`${jetbrains.variable} ${thalehfatFont.variable} bg-[#0F172A] font-sans`}
       >
         <ReduxProvider>
           <NavBar />

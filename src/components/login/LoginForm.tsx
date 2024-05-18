@@ -1,12 +1,13 @@
 "use client";
 
-import { loginTeam } from "@/api/auth/authApi";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-
 import { useState } from "react";
 
 import Link from "next/link";
+
+import { loginTeam } from "@/api/auth/authApi";
+
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");

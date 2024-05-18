@@ -1,7 +1,7 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-
 import { setupListeners } from "@reduxjs/toolkit/query/react";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
+
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import teamDetailsReducer from "./reducers/teamDetails-reducer";
 

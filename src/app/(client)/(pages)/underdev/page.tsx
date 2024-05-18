@@ -1,6 +1,6 @@
-import HeroSection from "@/components/landing/hero";
-
 import Image from "next/image";
+
+import HeroSection from "@/components/landing/hero";
 
 import EventMarquee from "./_components/marquee";
 import QuestionBox from "./_components/question-box";

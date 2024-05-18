@@ -1,10 +1,10 @@
 "use client";
 
-import NavigationLinks from "@/data/nav/nav";
-
 import { useState } from "react";
 
 import Link from "next/link";
+
+import NavigationLinks from "@/data/nav/nav";
 
 import { Button, buttonVariants } from "../ui/button";
 

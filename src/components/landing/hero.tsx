@@ -1,12 +1,13 @@
 "use client";
 
-import Countdown from "@/app/(client)/(pages)/underdev/_components/countdown";
-import { Button } from "@/components/ui/button";
-
 import { useEffect, useState } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
+
+import Countdown from "@/app/(client)/(pages)/underdev/_components/countdown";
+
+import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);

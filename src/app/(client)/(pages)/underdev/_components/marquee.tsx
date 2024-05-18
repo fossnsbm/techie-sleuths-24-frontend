@@ -1,3 +1,4 @@
+import React from "react";
 import Marquee from "react-fast-marquee";
 
 import Image from "next/image";
@@ -9,7 +10,7 @@ export default function EventMarquee() {
       {Array.from({ length: count }).map((_, index) => (
         <div key={index} className="flex flex-row">
           <h1
-            className="text-black text-9xl"
+            className="text-9xl text-black"
             style={{
               textShadow:
                 "4px 4px 0 #fff, -4px -4px 0 #fff, 4px -4px 0 #fff, -4px 4px 0 #fff",
@@ -17,7 +18,7 @@ export default function EventMarquee() {
           >
             Techie sleuths 24
           </h1>
-          <div className="flex justify-center items-center">
+          <div className="flex items-center justify-center">
             <Image alt="mush" src="/assets/mush.png" width={100} height={50} />
           </div>
         </div>

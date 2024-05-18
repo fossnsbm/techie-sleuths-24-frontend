@@ -1,11 +1,12 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { type VariantProps, cva } from "class-variance-authority";
-
 import * as ToastPrimitives from "@radix-ui/react-toast";
 import { X } from "lucide-react";
 import * as React from "react";
+
+import { type VariantProps, cva } from "class-variance-authority";
+
+import { cn } from "@/lib/utils";
 
 const ToastProvider = ToastPrimitives.Provider;
 

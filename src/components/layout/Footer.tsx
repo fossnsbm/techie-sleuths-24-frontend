@@ -1,10 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import socialMediaData from "@/data/footer/footerData";
-
 import Image from "next/image";
 import Link from "next/link";
+
+import { Button } from "@/components/ui/button";
+
+import socialMediaData from "@/data/footer/footerData";
 
 import footerbg from "../../../public/assets/footerAssets/footer_bg.png";
 import Container from "./Container";

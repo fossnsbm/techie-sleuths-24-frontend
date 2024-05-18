@@ -1,10 +1,11 @@
 "use client";
 
-import Container from "@/components/layout/Container";
-import { RootState } from "@/store";
-
 import React from "react";
 import { useSelector } from "react-redux";
+
+import { RootState } from "@/store";
+
+import Container from "@/components/layout/Container";
 
 export default function ExampleCard() {
   const teamName = useSelector(

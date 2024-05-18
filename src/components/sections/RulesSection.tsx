@@ -1,11 +1,12 @@
 "use client";
 
-import Rules from "@/data/rules/rules";
-import type { Rule } from "@/types/rule";
-
 import React, { useEffect, useState } from "react";
 
 import Image from "next/image";
+
+import Rules from "@/data/rules/rules";
+
+import type { Rule } from "@/types/rule";
 
 function RulesSectionRule(rule: Rule) {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
