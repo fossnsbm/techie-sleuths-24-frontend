@@ -1,10 +1,12 @@
 "use client";
 
 import React from "react";
-import Container from "../layout/Container";
+
 import Image from "next/image";
-import { Button } from "../ui/button";
 import Link from "next/link";
+
+import Container from "../layout/Container";
+import { Button } from "../ui/button";
 
 export default function RegisterNowCard() {
   return (

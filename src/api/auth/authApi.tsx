@@ -1,5 +1,6 @@
 import axios from "axios";
-import { REGISTER_URL, LOGIN_URL } from "../api-urls";
+
+import { LOGIN_URL, REGISTER_URL } from "../api-urls";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 

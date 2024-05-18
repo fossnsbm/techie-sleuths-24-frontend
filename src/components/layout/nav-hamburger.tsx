@@ -1,8 +1,12 @@
 "use client";
+
 import NavigationLinks from "@/data/nav/nav";
+
 import { useState } from "react";
-import { Button, buttonVariants } from "../ui/button";
+
 import Link from "next/link";
+
+import { Button, buttonVariants } from "../ui/button";
 
 export default function NavigationMenuHamburger() {
   const [isOpen, setIsOpen] = useState(false);

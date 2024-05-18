@@ -3,8 +3,10 @@
 import { loginTeam } from "@/api/auth/authApi";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Link from "next/link";
+
 import { useState } from "react";
+
+import Link from "next/link";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");

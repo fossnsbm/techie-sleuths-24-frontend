@@ -22,6 +22,9 @@ importers:
       "@reduxjs/toolkit":
         specifier: ^2.2.3
         version: 2.2.5(react-redux@9.1.2(@types/react@18.3.2)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
+      "@trivago/prettier-plugin-sort-imports":
+        specifier: ^4.3.0
+        version: 4.3.0(prettier@3.2.5)
       axios:
         specifier: ^1.6.8
         version: 1.6.8
@@ -45,7 +48,7 @@ importers:
         version: 2.1.2(postcss@8.4.38)(prettier@3.2.5)
       prettier-plugin-tailwindcss:
         specifier: ^0.5.14
-        version: 0.5.14(prettier-plugin-css-order@2.1.2(postcss@8.4.38)(prettier@3.2.5))(prettier@3.2.5)
+        version: 0.5.14(@trivago/prettier-plugin-sort-imports@4.3.0(prettier@3.2.5))(prettier-plugin-css-order@2.1.2(postcss@8.4.38)(prettier@3.2.5))(prettier@3.2.5)
       react:
         specifier: ^18
         version: 18.3.1
@@ -132,6 +135,55 @@ packages:
       }
     engines: { node: ">=6.9.0" }
 
+  "@babel/generator@7.17.7":
+    resolution:
+      {
+        integrity: sha512-oLcVCTeIFadUoArDTwpluncplrYBmTCCZZgXCbgNGvOBBiSDDK3eWO4b/+eOTli5tKv1lg+a5/NAXg+nTcei1w==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/generator@7.24.5":
+    resolution:
+      {
+        integrity: sha512-x32i4hEXvr+iI0NEoEfDKzlemF8AmtOP8CcrRaEcpzysWuoEb1KknpcvMsHKPONoKZiDuItklgWhB18xEhr9PA==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/helper-environment-visitor@7.22.20":
+    resolution:
+      {
+        integrity: sha512-zfedSIzFhat/gFhWfHtgWvlec0nqB9YEIVrpuwjruLlXfUSnA8cJB0miHKwqDnQ7d32aKo2xt88/xZptwxbfhA==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/helper-function-name@7.23.0":
+    resolution:
+      {
+        integrity: sha512-OErEqsrxjZTJciZ4Oo+eoZqeW9UIiOcuYKRJA4ZAgV9myA+pOXhhmpfNCKjEH/auVfEYVFJ6y1Tc4r0eIApqiw==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/helper-hoist-variables@7.22.5":
+    resolution:
+      {
+        integrity: sha512-wGjk9QZVzvknA6yKIUURb8zY3grXCcOZt+/7Wcy8O2uctxhplmUPkOdlgoNhmdVee2c92JXbf1xpMtVNbfoxRw==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/helper-split-export-declaration@7.24.5":
+    resolution:
+      {
+        integrity: sha512-5CHncttXohrHk8GWOFCcCl4oRD9fKosWlIRgWm4ql9VYioKm52Mk2xsmoohvm7f3JoiLSM5ZgJuRaf5QZZYd3Q==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/helper-string-parser@7.24.1":
+    resolution:
+      {
+        integrity: sha512-2ofRCjnnA9y+wk8b9IAREroeUP02KHp431N2mhKniy2yKIDKpbrHv9eXwm8cBeWQYcJmzv5qKCu65P47eCF7CQ==,
+      }
+    engines: { node: ">=6.9.0" }
+
   "@babel/helper-validator-identifier@7.24.5":
     resolution:
       {
@@ -146,10 +198,46 @@ packages:
       }
     engines: { node: ">=6.9.0" }
 
+  "@babel/parser@7.24.5":
+    resolution:
+      {
+        integrity: sha512-EOv5IK8arwh3LI47dz1b0tKUb/1uhHAnHJOrjgtQMIpu1uXd9mlFrJg9IUgGUgZ41Ch0K8REPTYpO7B76b4vJg==,
+      }
+    engines: { node: ">=6.0.0" }
+    hasBin: true
+
   "@babel/runtime@7.24.5":
     resolution:
       {
         integrity: sha512-Nms86NXrsaeU9vbBJKni6gXiEXZ4CVpYVzEjDH9Sb8vmZ3UljyA1GSOJl/6LGPO8EHLuSF9H+IxNXHPX8QHJ4g==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/template@7.24.0":
+    resolution:
+      {
+        integrity: sha512-Bkf2q8lMB0AFpX0NFEqSbx1OkTHf0f+0j82mkw+ZpzBnkk7e9Ql0891vlfgi+kHwOk8tQjiQHpqh4LaSa0fKEA==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/traverse@7.23.2":
+    resolution:
+      {
+        integrity: sha512-azpe59SQ48qG6nu2CzcMLbxUudtN+dOM9kDbUqGq3HXUJRlo7i8fvPoxQUzYgLZ4cMVmuZgm8vvBpNeRhd6XSw==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/types@7.17.0":
+    resolution:
+      {
+        integrity: sha512-TmKSNO4D5rzhL5bjWFcVHHLETzfQ/AmbKpKPOSjlP0WoHZ6L911fgoOKY4Alp/emzG4cHJdyN49zpgkbXFEHHw==,
+      }
+    engines: { node: ">=6.9.0" }
+
+  "@babel/types@7.24.5":
+    resolution:
+      {
+        integrity: sha512-6mQNsaLeXTw0nxYUYu+NSa4Hx4BlF1x1x8/PMFbiR+GBSr+2DkECc69b8hgy2frEodNcvPffeH8YfWd3LI6jhQ==,
       }
     engines: { node: ">=6.9.0" }
 
@@ -759,6 +847,18 @@ packages:
       {
         integrity: sha512-KGYxvIOXcceOAbEk4bi/dVLEK9z8sZ0uBB3Il5b1rhfClSpcX0yfRO0KmTkqR2cnQDymwLB+25ZyMzICg/cm/A==,
       }
+
+  "@trivago/prettier-plugin-sort-imports@4.3.0":
+    resolution:
+      {
+        integrity: sha512-r3n0onD3BTOVUNPhR4lhVK4/pABGpbA7bW3eumZnYdKaHkf1qEC+Mag6DPbGNuuh0eG8AaYj+YqmVHSiGslaTQ==,
+      }
+    peerDependencies:
+      "@vue/compiler-sfc": 3.x
+      prettier: 2.x - 3.x
+    peerDependenciesMeta:
+      "@vue/compiler-sfc":
+        optional: true
 
   "@types/axios@0.14.0":
     resolution:
@@ -1988,6 +2088,13 @@ packages:
       }
     engines: { node: ">=18" }
 
+  globals@11.12.0:
+    resolution:
+      {
+        integrity: sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==,
+      }
+    engines: { node: ">=4" }
+
   globals@13.24.0:
     resolution:
       {
@@ -2405,6 +2512,12 @@ packages:
       }
     engines: { node: ">=14" }
 
+  javascript-natural-sort@0.7.1:
+    resolution:
+      {
+        integrity: sha512-nO6jcEfZWQXDhOiBtG2KvKyEptz7RVbpGP4vTD2hLBdmNQSsCiicO2Ioinv6UI4y9ukqnBpy+XZ9H6uLNgJTlw==,
+      }
+
   jiti@1.21.0:
     resolution:
       {
@@ -2423,6 +2536,14 @@ packages:
       {
         integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==,
       }
+    hasBin: true
+
+  jsesc@2.5.2:
+    resolution:
+      {
+        integrity: sha512-OYu7XEzjkCQ3C5Ps3QIZsQfNpqoJyZZA99wd9aWd05NCtC5pWOkShK2mkL6HXQR6/Cy2lbNdPlZBpuQHXE63gA==,
+      }
+    engines: { node: ">=4" }
     hasBin: true
 
   json-buffer@3.0.1:
@@ -2588,6 +2709,12 @@ packages:
     resolution:
       {
         integrity: sha512-sReKOYJIJf74dhJONhU4e0/shzi1trVbSWDOhKYE5XV2O+H7Sb2Dihwuc7xWxVl+DgFPyTqIN3zMfT9cq5iWDg==,
+      }
+
+  lodash@4.17.21:
+    resolution:
+      {
+        integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==,
       }
 
   loose-envify@1.4.0:
@@ -3480,6 +3607,13 @@ packages:
       }
     engines: { node: ">=0.10.0" }
 
+  source-map@0.5.7:
+    resolution:
+      {
+        integrity: sha512-LbrmJOMUSdEVxIKvdcJzQC+nQhe8FUZQTXQy6+I75skNgn3OoQ0DZA8YnFa7gp8tqtL3KPf1kmo0R5DoApeSGQ==,
+      }
+    engines: { node: ">=0.10.0" }
+
   split2@4.2.0:
     resolution:
       {
@@ -3691,6 +3825,13 @@ packages:
       {
         integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==,
       }
+
+  to-fast-properties@2.0.0:
+    resolution:
+      {
+        integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==,
+      }
+    engines: { node: ">=4" }
 
   to-regex-range@5.0.1:
     resolution:
@@ -3934,6 +4075,36 @@ snapshots:
       "@babel/highlight": 7.24.5
       picocolors: 1.0.1
 
+  "@babel/generator@7.17.7":
+    dependencies:
+      "@babel/types": 7.17.0
+      jsesc: 2.5.2
+      source-map: 0.5.7
+
+  "@babel/generator@7.24.5":
+    dependencies:
+      "@babel/types": 7.24.5
+      "@jridgewell/gen-mapping": 0.3.5
+      "@jridgewell/trace-mapping": 0.3.25
+      jsesc: 2.5.2
+
+  "@babel/helper-environment-visitor@7.22.20": {}
+
+  "@babel/helper-function-name@7.23.0":
+    dependencies:
+      "@babel/template": 7.24.0
+      "@babel/types": 7.24.5
+
+  "@babel/helper-hoist-variables@7.22.5":
+    dependencies:
+      "@babel/types": 7.24.5
+
+  "@babel/helper-split-export-declaration@7.24.5":
+    dependencies:
+      "@babel/types": 7.24.5
+
+  "@babel/helper-string-parser@7.24.1": {}
+
   "@babel/helper-validator-identifier@7.24.5": {}
 
   "@babel/highlight@7.24.5":
@@ -3943,9 +4114,45 @@ snapshots:
       js-tokens: 4.0.0
       picocolors: 1.0.1
 
+  "@babel/parser@7.24.5":
+    dependencies:
+      "@babel/types": 7.17.0
+
   "@babel/runtime@7.24.5":
     dependencies:
       regenerator-runtime: 0.14.1
+
+  "@babel/template@7.24.0":
+    dependencies:
+      "@babel/code-frame": 7.24.2
+      "@babel/parser": 7.24.5
+      "@babel/types": 7.24.5
+
+  "@babel/traverse@7.23.2":
+    dependencies:
+      "@babel/code-frame": 7.24.2
+      "@babel/generator": 7.24.5
+      "@babel/helper-environment-visitor": 7.22.20
+      "@babel/helper-function-name": 7.23.0
+      "@babel/helper-hoist-variables": 7.22.5
+      "@babel/helper-split-export-declaration": 7.24.5
+      "@babel/parser": 7.24.5
+      "@babel/types": 7.24.5
+      debug: 4.3.4
+      globals: 11.12.0
+    transitivePeerDependencies:
+      - supports-color
+
+  "@babel/types@7.17.0":
+    dependencies:
+      "@babel/helper-validator-identifier": 7.24.5
+      to-fast-properties: 2.0.0
+
+  "@babel/types@7.24.5":
+    dependencies:
+      "@babel/helper-string-parser": 7.24.1
+      "@babel/helper-validator-identifier": 7.24.5
+      to-fast-properties: 2.0.0
 
   "@commitlint/cli@19.3.0(@types/node@20.12.12)(typescript@5.4.5)":
     dependencies:
@@ -4352,6 +4559,18 @@ snapshots:
     dependencies:
       "@swc/counter": 0.1.3
       tslib: 2.6.2
+
+  "@trivago/prettier-plugin-sort-imports@4.3.0(prettier@3.2.5)":
+    dependencies:
+      "@babel/generator": 7.17.7
+      "@babel/parser": 7.24.5
+      "@babel/traverse": 7.23.2
+      "@babel/types": 7.17.0
+      javascript-natural-sort: 0.7.1
+      lodash: 4.17.21
+      prettier: 3.2.5
+    transitivePeerDependencies:
+      - supports-color
 
   "@types/axios@0.14.0":
     dependencies:
@@ -5276,6 +5495,8 @@ snapshots:
     dependencies:
       ini: 4.1.1
 
+  globals@11.12.0: {}
+
   globals@13.24.0:
     dependencies:
       type-fest: 0.20.2
@@ -5484,6 +5705,8 @@ snapshots:
     optionalDependencies:
       "@pkgjs/parseargs": 0.11.0
 
+  javascript-natural-sort@0.7.1: {}
+
   jiti@1.21.0: {}
 
   js-tokens@4.0.0: {}
@@ -5491,6 +5714,8 @@ snapshots:
   js-yaml@4.1.0:
     dependencies:
       argparse: 2.0.1
+
+  jsesc@2.5.2: {}
 
   json-buffer@3.0.1: {}
 
@@ -5561,6 +5786,8 @@ snapshots:
   lodash.uniq@4.5.0: {}
 
   lodash.upperfirst@4.3.1: {}
+
+  lodash@4.17.21: {}
 
   loose-envify@1.4.0:
     dependencies:
@@ -5837,10 +6064,11 @@ snapshots:
     transitivePeerDependencies:
       - postcss
 
-  prettier-plugin-tailwindcss@0.5.14(prettier-plugin-css-order@2.1.2(postcss@8.4.38)(prettier@3.2.5))(prettier@3.2.5):
+  prettier-plugin-tailwindcss@0.5.14(@trivago/prettier-plugin-sort-imports@4.3.0(prettier@3.2.5))(prettier-plugin-css-order@2.1.2(postcss@8.4.38)(prettier@3.2.5))(prettier@3.2.5):
     dependencies:
       prettier: 3.2.5
     optionalDependencies:
+      "@trivago/prettier-plugin-sort-imports": 4.3.0(prettier@3.2.5)
       prettier-plugin-css-order: 2.1.2(postcss@8.4.38)(prettier@3.2.5)
 
   prettier@3.2.5: {}
@@ -6031,6 +6259,8 @@ snapshots:
 
   source-map-js@1.2.0: {}
 
+  source-map@0.5.7: {}
+
   split2@4.2.0: {}
 
   streamsearch@1.1.0: {}
@@ -6186,6 +6416,8 @@ snapshots:
       any-promise: 1.3.0
 
   through@2.3.8: {}
+
+  to-fast-properties@2.0.0: {}
 
   to-regex-range@5.0.1:
     dependencies:

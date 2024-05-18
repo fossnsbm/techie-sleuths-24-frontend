@@ -90,7 +90,7 @@ function CluePage({ params }: { params: { key: string } }) {
       </div>
 
       <div className="relative z-10 min-h-[75vh] gird place-content-center w-full">
-        <div className="relative mx-7 md:max-w-3xl md:mx-auto bg-[#FEF3C7] p-10 border-8 border-[#A66224] drop-shadow-xl flex justify-center items-center flex-col text-2xl ">
+        <div className="relative  md:max-w-3xl mx-7 md:mx-auto bg-[#FEF3C7] p-10 border-8 border-[#A66224] drop-shadow-xl flex justify-center items-center flex-col text-2xl ">
           {/* deco */}
           <>
             <div

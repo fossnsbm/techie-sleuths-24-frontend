@@ -1,6 +1,7 @@
-import Image from "next/image";
-import EventDetailsMarquee from "@/components/ui/marquee";
 import RegistrationForm from "@/components/register/registration-form";
+import EventDetailsMarquee from "@/components/ui/marquee";
+
+import Image from "next/image";
 
 export default function RegisterPage() {
   return (

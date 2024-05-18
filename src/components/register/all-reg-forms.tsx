@@ -1,9 +1,6 @@
 "use client";
 
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-
+import { registerTeam } from "@/api/auth/authApi";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -13,10 +10,14 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useToast } from "../ui/use-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+
 import { ToastAction } from "../ui/toast";
-import { registerTeam } from "@/api/auth/authApi";
+import { useToast } from "../ui/use-toast";
 
 export default function AllRegForms() {
   const { toast } = useToast();

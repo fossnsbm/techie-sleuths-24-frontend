@@ -1,9 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import Countdown from "@/app/(client)/(pages)/underdev/_components/countdown";
+import { Button } from "@/components/ui/button";
+
 import { useEffect, useState } from "react";
+
+import Image from "next/image";
 import Link from "next/link";
 
 export default function HeroSection() {

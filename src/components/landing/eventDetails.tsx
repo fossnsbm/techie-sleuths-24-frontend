@@ -1,9 +1,12 @@
 "use client";
-import Image from "next/image";
+
 import { useEffect, useState } from "react";
+
+import Image from "next/image";
+import Link from "next/link";
+
 import CoinsRow from "../ui/coins-line";
 import EventDetailsMarquee from "../ui/marquee";
-import Link from "next/link";
 
 export default function EventDetails() {
   const [coinCenterCount, setCoinCenterCount] = useState(1);

@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
-import "@/styles/globals.css";
-import { ReduxProvider } from "@/store/provider";
-import { Toaster } from "@/components/ui/toaster";
-import { jetbrains, thalehfatFont } from "@/styles/fonts";
 import Footer from "@/components/layout/Footer";
 import NavBar from "@/components/layout/navbar";
+import { Toaster } from "@/components/ui/toaster";
+import { ReduxProvider } from "@/store/provider";
+import { jetbrains, thalehfatFont } from "@/styles/fonts";
+import "@/styles/globals.css";
+
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Techie Sleuths '24",

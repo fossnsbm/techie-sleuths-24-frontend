@@ -1,8 +1,7 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import Container from "@/components/layout/Container";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -14,11 +13,13 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
-import { Button } from "@/components/ui/button";
-import { useDispatch, useSelector } from "react-redux";
-import { setTeamName } from "@/store/reducers/teamDetails-reducer";
 import { RootState } from "@/store";
-import Container from "@/components/layout/Container";
+import { setTeamName } from "@/store/reducers/teamDetails-reducer";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 
 const formSchema = z.object({
   teamName: z.string().min(2).max(50),
