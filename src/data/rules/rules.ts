@@ -30,8 +30,8 @@ const Rules: Rule[] = [
     title: "Rule 4",
     description: [
       "The 3 teams who will fill the most number of puzzle terms will be the winners",
-      "Winning teams will get prizes along with certificates",
-      "For each team there should be at least NFC-enabled mobile device",
+      "Winning teams will receive prizes along with certificates",
+      "For each team there should be at least one NFC-enabled mobile device",
     ],
   },
 ];
