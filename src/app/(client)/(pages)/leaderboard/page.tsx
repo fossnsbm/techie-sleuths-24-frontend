@@ -4,7 +4,7 @@ import QuestionBox from "./_components/question-box";
 export default function Page() {
   return (
     <div className="w-full h-full relative bg-slate-900">
-      <Image
+      {/* <Image
         alt="Mountains"
         src="/assets/bg-img.webp"
         layout="fill"
@@ -28,7 +28,7 @@ export default function Page() {
           The Leaderboard will be available when the event starts!
         </h1>
         <QuestionBox />
-      </div>
+      </div> */}
     </div>
   );
 }
