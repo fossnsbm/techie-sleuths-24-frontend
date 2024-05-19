@@ -32,7 +32,10 @@ const RowTwelve = () => {
     <Cell
       key={"p-12-6"}
       cellNumber={32}
-      clues={[{ clueNumber: 4, clueDirection: "d" }]}
+      clues={[
+        { clueNumber: 4, clueDirection: "d" },
+        { clueNumber: 12, clueDirection: "a" },
+      ]}
     />,
     <Cell
       key={"p-12-7"}

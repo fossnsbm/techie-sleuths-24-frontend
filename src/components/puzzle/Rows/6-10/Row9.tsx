@@ -31,16 +31,38 @@ const RowNine = () => {
       key={"p-9-17"}
       cellNumber={115}
       clueIndex={10}
-      clues={[{ clueNumber: 8, clueDirection: "d" }]}
+      clues={[
+        { clueNumber: 8, clueDirection: "d" },
+        { clueNumber: 10, clueDirection: "a" },
+      ]}
     />,
-    <Cell key={"p-9-18"} cellNumber={121} clues={[]} />,
-    <Cell key={"p-9-19"} cellNumber={122} clues={[]} />,
-    <Cell key={"p-9-20"} cellNumber={123} clues={[]} />,
-    <Cell key={"p-9-21"} cellNumber={124} clues={[]} />,
+    <Cell
+      key={"p-9-18"}
+      cellNumber={121}
+      clues={[{ clueNumber: 10, clueDirection: "a" }]}
+    />,
+    <Cell
+      key={"p-9-19"}
+      cellNumber={122}
+      clues={[{ clueNumber: 10, clueDirection: "a" }]}
+    />,
+    <Cell
+      key={"p-9-20"}
+      cellNumber={123}
+      clues={[{ clueNumber: 10, clueDirection: "a" }]}
+    />,
+    <Cell
+      key={"p-9-21"}
+      cellNumber={124}
+      clues={[{ clueNumber: 10, clueDirection: "a" }]}
+    />,
     <Cell
       key={"p-9-22"}
       cellNumber={127}
-      clues={[{ clueNumber: 9, clueDirection: "d" }]}
+      clues={[
+        { clueNumber: 9, clueDirection: "d" },
+        { clueNumber: 10, clueDirection: "a" },
+      ]}
     />,
   ];
 
