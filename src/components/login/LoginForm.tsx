@@ -36,11 +36,6 @@ export default function LoginForm() {
       setPasswordError("Password is required *");
       console.log("Password is required");
       hasError = true;
-    } else if (!passwordRegex.test(password)) {
-      setPasswordError(
-        "Password must be a mix of uppercase, lowercase, numbers, and special characters, and between 8 and 20 characters long *"
-      );
-      hasError = true;
     } else {
       setPasswordError("");
     }
