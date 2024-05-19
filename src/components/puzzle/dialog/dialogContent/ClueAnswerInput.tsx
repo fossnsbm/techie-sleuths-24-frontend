@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { getCellCount, getCellRange } from "../../data/ClueCellCount";
+import {
+  getCellCount,
+  getCellRange,
+} from "../../../../data/puzzle/ClueCellCount";
 import { MoveDown, MoveRight } from "lucide-react";
 import { IClue } from "@/types/puzzle";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,13 +19,16 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import { useSelector } from "react-redux";
+import { updatePuzzle } from "@/store/reducers/puzzle-reducer";
+import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/store";
 
 const ClueAnswerInput = () => {
+  const dispatch = useDispatch();
   const currentClues: IClue[] = useSelector(
     (state: RootState) => state.puzzleDialog.clues
   );
+  const currentCellValues = useSelector((state: RootState) => state.puzzle);
   const [charCount, setCharCount] = useState(0);
 
   const cellCount = getCellCount(
@@ -32,7 +38,7 @@ const ClueAnswerInput = () => {
 
   const formSchema = z.object({
     answer: z.string().length(cellCount, {
-      message: "Fill all the characters to submit",
+      message: `Fill all ${cellCount} characters to submit`,
     }),
   });
 
@@ -55,8 +61,25 @@ const ClueAnswerInput = () => {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    const cellKeys = getCellRange(
+      currentClues[0].clueNumber,
+      currentClues[0].clueDirection
+    );
+
+    if (!cellKeys) {
+      console.error("cellKeys is undefined");
+      return;
+    }
+
+    const newCellValues = { ...currentCellValues } as { [key: string]: string };
+
+    for (let i = 0; i < cellKeys.length; i++) {
+      newCellValues[cellKeys[i]] = values.answer[i].toUpperCase();
+    }
+
+    console.log(newCellValues);
   }
+
   return (
     <>
       <DialogHeader>
@@ -93,10 +116,11 @@ const ClueAnswerInput = () => {
                       maxLength={cellCount}
                     />
                   </FormControl>
+                  <FormMessage className="text-base" />
                   <FormDescription className="text-right text-lg">{`${charCount}/${cellCount} characters`}</FormDescription>
-                  <FormDescription className="text-left text-lg">
-                    Note:
-                    <ul className="list-disc pl-7">
+                  <div className="text-left text-lg">
+                    <FormDescription className="text-lg">Note:</FormDescription>
+                    <ul className="list-disc pl-7 text-muted-foreground">
                       <li className="leading-4">
                         Characters already set for this cells will be replaced
                         by your new answer
@@ -106,8 +130,7 @@ const ClueAnswerInput = () => {
                         character
                       </li>
                     </ul>
-                  </FormDescription>
-                  <FormMessage />
+                  </div>
                 </FormItem>
               )}
             />
