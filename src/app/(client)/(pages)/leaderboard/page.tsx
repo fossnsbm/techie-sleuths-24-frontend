@@ -1,13 +1,35 @@
 import Image from "next/image";
 import QuestionBox from "./_components/question-box";
-import { BarList } from "@tremor/react";
+import { BarList, Card } from "@tremor/react";
 
 export default function Page() {
-  const datahero = [
-    { name: "/home", value: 456 },
-    { name: "/imprint", value: 351 },
-    { name: "/cancellation", value: 51 },
+  const data = [
+    {
+      name: "Google",
+      value: 351,
+      href: "https://google.com",
+      
+    },
+    {
+      name: "GitHub",
+      value: 271,
+      href: "https://github.com/tremorlabs/tremor",
+      
+    },
+    {
+      name: "Reddit",
+      value: 191,
+      href: "https://reddit.com",
+      
+    },
+    {
+      name: "Youtube",
+      value: 91,
+      href: "https://www.youtube.com/@tremorlabs3079",
+      
+    },
   ];
+
   return (
     <div className="w-full h-full relative bg-slate-900">
       <Image
@@ -16,7 +38,14 @@ export default function Page() {
         layout="fill"
         objectFit="cover"
       />
-      <BarList data={datahero} className="mx-auto max-w-sm" />
+      <Card className="mx-auto max-w-lg">
+        <p className="mt-4 text-tremor-default flex items-center justify-between text-tremor-content dark:text-dark-tremor-content">
+          <span>Team Name</span>
+          <span>Points</span>
+        </p>
+        <BarList data={data} className="mt-2" />
+      </Card>
+
       {/* <div className="w-full h-[85vh] relative flex justify-center items-center flex-col gap-8">
         <Image
           alt="start"
