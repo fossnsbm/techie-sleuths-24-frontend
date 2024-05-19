@@ -1,7 +1,13 @@
 import Image from "next/image";
 import QuestionBox from "./_components/question-box";
+import { BarList } from "@tremor/react";
 
 export default function Page() {
+  const datahero = [
+    { name: "/home", value: 456 },
+    { name: "/imprint", value: 351 },
+    { name: "/cancellation", value: 51 },
+  ];
   return (
     <div className="w-full h-full relative bg-slate-900">
       <Image
@@ -10,7 +16,8 @@ export default function Page() {
         layout="fill"
         objectFit="cover"
       />
-      <div className="w-full h-[85vh] relative flex justify-center items-center flex-col gap-8">
+      <BarList data={datahero} className="mx-auto max-w-sm" />
+      {/* <div className="w-full h-[85vh] relative flex justify-center items-center flex-col gap-8">
         <Image
           alt="start"
           src="/assets/start.png"
@@ -28,7 +35,7 @@ export default function Page() {
           The Leaderboard will be available when the event starts!
         </h1>
         <QuestionBox />
-      </div>
+      </div> */}
     </div>
   );
 }
