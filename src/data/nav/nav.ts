@@ -10,7 +10,7 @@ const NavigationLinks: INavBar[] = [
   {
     id: 2,
     title: "PUZZLE",
-    link: "/crossword",
+    link: "/play",
   },
   {
     id: 3,
