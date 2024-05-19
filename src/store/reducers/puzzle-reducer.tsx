@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState = {
-  b1: "W",
+  b1: "",
   b2: "",
   b3: "",
   b4: "",
@@ -12,7 +12,7 @@ const initialState = {
   b10: "",
   b11: "",
   b12: "",
-  b13: "A",
+  b13: "",
   b14: "",
   b15: "",
   b16: "",
