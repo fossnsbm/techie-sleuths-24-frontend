@@ -11,8 +11,7 @@ type Props = {
   clueIndex?: number;
 };
 
-
-const Cell = (props: Props) => {
+export default function Cell(props: Props) {
   const dispatch = useDispatch();
   const cellKey = `b${props.cellNumber}`;
   const answer: string = useSelector(
@@ -36,9 +35,9 @@ const Cell = (props: Props) => {
           {props.clueIndex}
         </span>
       )}
-      <div className="flex items-center justify-center w-5 h-5 uppercase">{props.cellNumber}</div>
+      <div className="flex items-center justify-center w-5 h-5 uppercase">
+        {answer}
+      </div>
     </button>
   );
-};
-
-export default Cell;
+}
