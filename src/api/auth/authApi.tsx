@@ -56,6 +56,7 @@ export const loginTeam = async (email: string, password: string) => {
         team_leader_email: email,
         password: password,
       },
+      withCredentials: true
     });
 
     return response.data;

@@ -8,8 +8,13 @@ import { loginTeam } from "@/api/auth/authApi";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
+import { ToastAction } from "../ui/toast";
 
 export default function LoginForm() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -17,19 +22,17 @@ export default function LoginForm() {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
+  const { toast } = useToast();
+
   const handleLogin = async () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
     let hasError = false;
 
     if (!email.trim()) {
       setEmailError("Email is required *");
-      console.log("Email is required");
       hasError = true;
     } else if (!emailRegex.test(email)) {
       setEmailError("Invalid email format *");
-      console.log("Invalid email format");
       hasError = true;
     } else {
       setEmailError("");
@@ -51,16 +54,19 @@ export default function LoginForm() {
     if (hasError) {
       return;
     }
-
     setLoading(true);
-    console.log(email, password);
     try {
       setEmailError("");
       setPasswordError("");
       const res = await loginTeam(email, password);
-      console.log("_res", res);
+      router.push("/play");
     } catch (error: any) {
-      console.log("Error: ", error.response.data.error);
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: error.response.data.error,
+        action: <ToastAction altText="Try again">Try again</ToastAction>,
+      });
     } finally {
       setLoading(false);
     }

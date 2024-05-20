@@ -20,3 +20,14 @@ export const CLUE_URLS = {
 
 export const GET_CLUE_URL = CLUE_URLS.GET_CLUE_URL;
 export const MARK_CLUE_URL = CLUE_URLS.MARK_CLUE_URL;
+
+//---------------------------------------------Puzzle-----------------------------------------------------------------
+/**
+ * Get Crossword Details
+ */
+export const GET_CROSSWORD_DETAILS = "/crossword/get";
+
+/**
+ * Update Crossword
+ */
+export const UPDATE_CROSSWORD = "/crossword/update";

@@ -3,12 +3,12 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/login",
+        source: "/underdev",
         destination: "/",
         permanent: false,
       },
       {
-        source: "/underdev",
+        source: "/register",
         destination: "/",
         permanent: false,
       },

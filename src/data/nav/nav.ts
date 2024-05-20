@@ -8,8 +8,8 @@ const NavigationLinks: INavBar[] = [
   },
   {
     id: 2,
-    title: "PUZZLES",
-    link: "/",
+    title: "PUZZLE",
+    link: "/play",
   },
   {
     id: 3,
