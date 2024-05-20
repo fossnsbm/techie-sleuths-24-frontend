@@ -1,7 +1,8 @@
+import { BarList, Card } from "@tremor/react";
 
 import Image from "next/image";
+
 import QuestionBox from "./_components/question-box";
-import { BarList, Card } from "@tremor/react";
 
 export default function Page() {
   const data = [
@@ -74,7 +75,7 @@ export default function Page() {
   };
 
   return (
-    <div className="w-full h-full relative bg-slate-900">
+    <div className="relative h-full w-full bg-slate-900">
       <Image
         alt="Mountains"
         src="/assets/bg-img.webp"
@@ -85,15 +86,14 @@ export default function Page() {
         style={{
           boxShadow: style.boxShadowLarge,
         }}
-        className="relative mx-7  md:max-w-5xl md:mx-auto bg-[#FEF3C7] py-10 px-10 border-8 border-[#A66224]"
+        className="relative mx-7  border-8 border-[#A66224] bg-[#FEF3C7] px-10 py-10 md:mx-auto md:max-w-5xl"
       >
-        <p className="mt-4 text-tremor-default flex items-center justify-between text-tremor-content dark:text-dark-tremor-content">
+        <p className="mt-4 flex items-center justify-between text-tremor-default text-tremor-content dark:text-dark-tremor-content">
           <span>Rank</span>
           <span>Team Name</span>
           <span>Points</span>
         </p>
         <BarList data={data} className="mt-2" />
-
       </div>
       {/* <Card className="mx-auto max-w-lg">
       </Card> */}

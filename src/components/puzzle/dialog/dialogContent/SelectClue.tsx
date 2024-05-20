@@ -1,21 +1,24 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { RootState } from "@/store";
+import { setPuzzleDialog } from "@/store/reducers/puzzleDialog-reducer";
+
+import { Button } from "@/components/ui/button";
 import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
+
 import { IClue } from "@/types/puzzle";
-import { useSelector, useDispatch } from "react-redux";
-import { setPuzzleDialog } from "@/store/reducers/puzzleDialog-reducer";
-import { RootState } from "@/store";
 
 type Props = {};
 
 const SelectClue = (props: Props) => {
   const dispatch = useDispatch();
   const currentClues: IClue[] = useSelector(
-    (state: RootState) => state.puzzleDialog.clues
+    (state: RootState) => state.puzzleDialog.clues,
   );
   const handleButtonClick = (clue: IClue) => {
     dispatch(setPuzzleDialog({ isOpen: true, clues: [clue] }));
@@ -24,7 +27,7 @@ const SelectClue = (props: Props) => {
     <>
       <DialogHeader>
         <DialogTitle className="text-2xl">Select a clue</DialogTitle>
-        <DialogDescription className="text-xl text-center">
+        <DialogDescription className="text-center text-xl">
           Please select one of these clues to fill.
         </DialogDescription>
       </DialogHeader>

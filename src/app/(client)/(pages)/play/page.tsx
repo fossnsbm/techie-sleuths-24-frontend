@@ -1,11 +1,15 @@
 "use client";
+
 import React, { Suspense, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { updatePuzzle } from "@/store/reducers/puzzle-reducer";
-import Puzzle from "@/components/puzzle/Rows/Puzzle";
+
 import { useRouter } from "next/navigation";
-import PuzzleDialog from "@/components/puzzle/dialog/PuzzleDialog";
+
 import { getCrosswordDetails } from "@/api/puzzle/puzzleApi";
+import { updatePuzzle } from "@/store/reducers/puzzle-reducer";
+
+import Puzzle from "@/components/puzzle/Rows/Puzzle";
+import PuzzleDialog from "@/components/puzzle/dialog/PuzzleDialog";
 import { useToast } from "@/components/ui/use-toast";
 
 export default function PuzzlePage() {
@@ -38,7 +42,7 @@ export default function PuzzlePage() {
   }, []);
 
   return (
-    <div className="px-[3%] py-8 bg-sky-200">
+    <div className="bg-sky-200 px-[3%] py-8">
       <PuzzleDialog />
       <div className="text-center">
         <Suspense>
