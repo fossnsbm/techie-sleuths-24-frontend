@@ -81,7 +81,7 @@ const ClueAnswerInput = () => {
 
     for (let i = 0; i < cellKeys.length; i++) {
       newCellValues[cellKeys[i]] =
-        values.answer[i] === "_" ? "" : values.answer[i].toUpperCase();
+        values.answer[i] === "_" ? "" : values?.answer[i]?.toUpperCase();
     }
     const res = await updateCrossword(newCellValues);
     if (res?.status === 401) {
