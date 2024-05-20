@@ -23,7 +23,7 @@ export const updateCrossword = (
   crossword: any
 ): Promise<AxiosResponse | undefined> => {
   return axios
-    .post(UPDATE_CROSSWORD, { crossword })
+    .put(UPDATE_CROSSWORD, crossword)
     .then((response: AxiosResponse) => {
       return response;
     })

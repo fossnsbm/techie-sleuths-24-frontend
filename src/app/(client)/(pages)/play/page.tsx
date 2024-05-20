@@ -28,8 +28,7 @@ export default function PuzzlePage() {
           router.push("/login");
         }
         if (res?.status === 200) {
-          console.log(res.data.crossword.boxes);
-          dispatch(updatePuzzle(res.data.boxes));
+          dispatch(updatePuzzle(res?.data?.crossword.boxes));
         } else {
           toast({
             variant: "destructive",
@@ -66,7 +65,7 @@ export default function PuzzlePage() {
   }, []);
 
   return (
-    <div className="px-[3%] py-8 bg-gradient-to-b sky-200">
+    <div className="px-[3%] py-8 bg-sky-200">
       <PuzzleDialog />
       <div className="text-center">
         <Puzzle />

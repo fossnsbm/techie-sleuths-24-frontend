@@ -2,12 +2,6 @@ import React, { useState } from "react";
 import { DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import {
-  getCellCount,
-  getCellRange,
-} from "../../../../data/puzzle/ClueCellCount";
-import { MoveDown, MoveRight } from "lucide-react";
-import { IClue } from "@/types/puzzle";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -19,11 +13,21 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
+import { getCellCount, getCellRange } from "@/data/puzzle/ClueCellCount";
+import { MoveDown, MoveRight } from "lucide-react";
+import { IClue } from "@/types/puzzle";
 import { updatePuzzle } from "@/store/reducers/puzzle-reducer";
+import { closePuzzleDialog } from "@/store/reducers/puzzleDialog-reducer";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/store";
+import { updateCrossword } from "@/api/puzzle/puzzleApi";
+import { useRouter } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
 
 const ClueAnswerInput = () => {
+  const { toast } = useToast();
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const currentClues: IClue[] = useSelector(
     (state: RootState) => state.puzzleDialog.clues
@@ -60,7 +64,8 @@ const ClueAnswerInput = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsLoading(true);
     const cellKeys = getCellRange(
       currentClues[0].clueNumber,
       currentClues[0].clueDirection
@@ -68,16 +73,30 @@ const ClueAnswerInput = () => {
 
     if (!cellKeys) {
       console.error("cellKeys is undefined");
+      setIsLoading(false);
       return;
     }
 
     const newCellValues = { ...currentCellValues } as { [key: string]: string };
 
     for (let i = 0; i < cellKeys.length; i++) {
-      newCellValues[cellKeys[i]] = values.answer[i].toUpperCase();
+      newCellValues[cellKeys[i]] =
+        values.answer[i] === "_" ? "" : values.answer[i].toUpperCase();
     }
-
-    console.log(newCellValues);
+    const res = await updateCrossword(newCellValues);
+    if (res?.status === 401) {
+      router.push("/login");
+    }
+    if (res?.status === 200) {
+      dispatch(updatePuzzle(res?.data?.boxes));
+      router.replace("/play");
+      dispatch(closePuzzleDialog());
+      toast({
+        title: "Update Successful",
+        description: "Your answer was submitted successfully.",
+      });
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -135,7 +154,7 @@ const ClueAnswerInput = () => {
               )}
             />
             <div className="flex justify-end">
-              <Button type="submit" className="px-10">
+              <Button type="submit" className="px-10" loading={isLoading}>
                 Submit
               </Button>
             </div>
