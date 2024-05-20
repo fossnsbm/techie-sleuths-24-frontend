@@ -1,25 +1,23 @@
 #!/usr/bin/env sh
 
-export NVM_DIR="$HOME/.nvm"
+PKG_MGRS="pnpm yarn npm"
+NODE_GLOBALS="node bun $PKG_MGRS npx"
 
-NODE_GLOBALS="node bun npm yarn pnpm npx"
+NVM_DIR="$HOME/.nvm"
 
-_load_nvm() {
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+if [ -d "$NVM_DIR" ]; then
+    _load_nvm() {
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-    node --version >/dev/null
-    npx --version >/dev/null
-}
+        node --version >/dev/null
+        npx --version >/dev/null
+    }
 
-eval "node(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; node \$@; }"
-eval "bun(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; bun \$@; }"
+    for cmd in $NODE_GLOBALS; do
+        eval "$cmd(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; $cmd \$@; }"
+    done
 
-eval "npm(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; npm \$@; }"
-eval "yarn(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; yarn \$@; }"
-eval "pnpm(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; pnpm \$@; }"
-
-eval "npx(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; npx \$@; }"
-
-unset -f "$NODE_GLOBALS"
+    unset -f "$NODE_GLOBALS"
+fi
 
 npx --no-install commitlint --edit "$1"
