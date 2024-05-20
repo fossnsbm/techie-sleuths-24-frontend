@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios";
+
 import { GET_CROSSWORD_DETAILS, UPDATE_CROSSWORD } from "../api-urls";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -20,7 +21,7 @@ export const getCrosswordDetails = (): Promise<AxiosResponse | undefined> => {
 };
 
 export const updateCrossword = (
-  crossword: any
+  crossword: any,
 ): Promise<AxiosResponse | undefined> => {
   return axios
     .put(UPDATE_CROSSWORD, crossword)

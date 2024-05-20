@@ -204,20 +204,20 @@ const clueCellCount: Clue[] = [
 
 export function getCellRange(
   clueNumber: number,
-  clueDirection: "d" | "a"
+  clueDirection: "d" | "a",
 ): string[] | undefined {
   const clue = clueCellCount.find(
-    (c) => c.clueNumber === clueNumber && c.clueDirection === clueDirection
+    (c) => c.clueNumber === clueNumber && c.clueDirection === clueDirection,
   );
   return clue?.cellRange;
 }
 
 export function getCellCount(
   clueNumber: number,
-  clueDirection: "d" | "a"
+  clueDirection: "d" | "a",
 ): number {
   const clue = clueCellCount.find(
-    (c) => c.clueNumber === clueNumber && c.clueDirection === clueDirection
+    (c) => c.clueNumber === clueNumber && c.clueDirection === clueDirection,
   );
   return clue?.characterCount || 0;
 }

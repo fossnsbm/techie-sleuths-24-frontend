@@ -1,10 +1,19 @@
+import { MoveDown, MoveRight } from "lucide-react";
 import React, { useState } from "react";
-import { DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+
+import { useRouter } from "next/navigation";
+
+import { updateCrossword } from "@/api/puzzle/puzzleApi";
+import { RootState } from "@/store";
+import { updatePuzzle } from "@/store/reducers/puzzle-reducer";
+import { closePuzzleDialog } from "@/store/reducers/puzzleDialog-reducer";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+
+import { Button } from "@/components/ui/button";
+import { DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import {
   Form,
   FormControl,
@@ -13,16 +22,12 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import { getCellCount, getCellRange } from "@/data/puzzle/ClueCellCount";
-import { MoveDown, MoveRight } from "lucide-react";
-import { IClue } from "@/types/puzzle";
-import { updatePuzzle } from "@/store/reducers/puzzle-reducer";
-import { closePuzzleDialog } from "@/store/reducers/puzzleDialog-reducer";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@/store";
-import { updateCrossword } from "@/api/puzzle/puzzleApi";
-import { useRouter } from "next/navigation";
+import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
+
+import { getCellCount, getCellRange } from "@/data/puzzle/ClueCellCount";
+
+import { IClue } from "@/types/puzzle";
 
 const ClueAnswerInput = () => {
   const { toast } = useToast();
@@ -30,14 +35,14 @@ const ClueAnswerInput = () => {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const currentClues: IClue[] = useSelector(
-    (state: RootState) => state.puzzleDialog.clues
+    (state: RootState) => state.puzzleDialog.clues,
   );
   const currentCellValues = useSelector((state: RootState) => state.puzzle);
   const [charCount, setCharCount] = useState(0);
 
   const cellCount = getCellCount(
     currentClues[0].clueNumber,
-    currentClues[0].clueDirection
+    currentClues[0].clueDirection,
   );
 
   const formSchema = z.object({
@@ -68,7 +73,7 @@ const ClueAnswerInput = () => {
     setIsLoading(true);
     const cellKeys = getCellRange(
       currentClues[0].clueNumber,
-      currentClues[0].clueDirection
+      currentClues[0].clueDirection,
     );
 
     if (!cellKeys) {
@@ -105,7 +110,7 @@ const ClueAnswerInput = () => {
         <DialogTitle className="text-2xl">Enter your answer</DialogTitle>
       </DialogHeader>
       <div className="grid gap-4 py-4">
-        <div className="flex justify-start items-center gap-3 text-xl">
+        <div className="flex items-center justify-start gap-3 text-xl">
           Enter your answer for
           <div className="flex items-center justify-center">
             <span className="text-3xl">{currentClues[0].clueNumber}</span>
@@ -126,7 +131,7 @@ const ClueAnswerInput = () => {
                   <FormControl>
                     <Input
                       {...field}
-                      className="sm:w-[100%] w-[100%] text-base uppercase"
+                      className="w-[100%] text-base uppercase sm:w-[100%]"
                       onKeyDown={handleKeyDown}
                       onChange={(e) => {
                         handleInputChange(e);

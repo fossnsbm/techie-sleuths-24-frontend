@@ -1,24 +1,29 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useSearchParams } from "next/navigation";
-import { getCellCount } from "@/data/puzzle/ClueCellCount";
-import { setPuzzleDialog } from "@/store/reducers/puzzleDialog-reducer";
 import { useSelector } from "react-redux";
+
+import { useSearchParams } from "next/navigation";
+
 import { RootState } from "@/store";
+import { setPuzzleDialog } from "@/store/reducers/puzzleDialog-reducer";
+
 import {
-  RowOne,
-  RowTwo,
-  RowThree,
-  RowFour,
   RowFive,
+  RowFour,
+  RowOne,
+  RowThree,
+  RowTwo,
 } from "@/components/puzzle/Rows/1-5";
 import {
-  RowSix,
-  RowSeven,
   RowEight,
   RowNine,
+  RowSeven,
+  RowSix,
   RowTen,
 } from "@/components/puzzle/Rows/6-10";
+
+import { getCellCount } from "@/data/puzzle/ClueCellCount";
+
 import {
   RowEleven,
   RowFifteen,
@@ -48,7 +53,7 @@ const Puzzle = (props: Props) => {
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
   const puzzleState: boolean = useSelector(
-    (state: RootState) => state.puzzleDialog.isOpen
+    (state: RootState) => state.puzzleDialog.isOpen,
   );
   useEffect(() => {
     let direction = searchParams.get("direction");
@@ -66,7 +71,7 @@ const Puzzle = (props: Props) => {
                 clueDirection: direction as "d" | "a",
               },
             ],
-          })
+          }),
         );
       }
     }

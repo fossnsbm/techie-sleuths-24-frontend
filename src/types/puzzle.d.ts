@@ -1,4 +1,4 @@
 export interface IClue {
-    clueNumber: number;
-    clueDirection: "d" | "a";
+  clueNumber: number;
+  clueDirection: "d" | "a";
 }

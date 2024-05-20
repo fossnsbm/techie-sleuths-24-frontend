@@ -1,0 +1,25 @@
+module.exports = {
+  plugins: [
+    "prettier-plugin-css-order",
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss",
+  ],
+  importOrder: [
+    "react",
+    "next",
+    "<THIRD_PARTY_MODULES>",
+    "^components/(.*)$",
+    "^@/lib/(.*)$",
+    "^@/hooks/(.*)$",
+    "^@/components/(.*)$",
+    "^.css",
+    "^.scss",
+    "^.sass",
+    "^@/styles/(.*)$",
+    "^@/data/(.*)$",
+    "^@/types/(.*)$",
+    "^[./]",
+  ],
+  importOrderSeparation: true,
+  importOrderSortSpecifiers: true,
+};

@@ -1,11 +1,15 @@
 import React from "react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { useDispatch, useSelector } from "react-redux";
+
 import { RootState } from "@/store";
-import { useSelector, useDispatch } from "react-redux";
+import { closePuzzleDialog } from "@/store/reducers/puzzleDialog-reducer";
+
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+
+import { IClue } from "@/types/puzzle";
+
 import ClueAnswerInput from "./dialogContent/ClueAnswerInput";
 import SelectClue from "./dialogContent/SelectClue";
-import { closePuzzleDialog } from "@/store/reducers/puzzleDialog-reducer";
-import { IClue } from "@/types/puzzle";
 
 type Props = {};
 
@@ -17,7 +21,7 @@ interface IPuzzleDialogState {
 export default function PuzzleDialog(props: Props) {
   const dispatch = useDispatch();
   const dialogStatus: IPuzzleDialogState = useSelector(
-    (state: RootState) => state.puzzleDialog
+    (state: RootState) => state.puzzleDialog,
   );
   return (
     <Dialog

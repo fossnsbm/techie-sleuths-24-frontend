@@ -1,9 +1,11 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { TypedUseSelectorHook, useSelector } from "react-redux";
 import { setupListeners } from "@reduxjs/toolkit/query/react";
-import teamDetailsReducer from "./reducers/teamDetails-reducer";
+import { TypedUseSelectorHook, useSelector } from "react-redux";
+
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+
 import puzzleReducer from "./reducers/puzzle-reducer";
 import puzzleDialogReducer from "./reducers/puzzleDialog-reducer";
+import teamDetailsReducer from "./reducers/teamDetails-reducer";
 
 const rootReducer = combineReducers({
   teamDetails: teamDetailsReducer,
