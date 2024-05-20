@@ -3,7 +3,6 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { IClue } from "@/types/puzzle";
@@ -33,7 +32,6 @@ const SelectClue = (props: Props) => {
         {currentClues.map((clue) => (
           <Button
             key={clue.clueNumber}
-            variant={"secondary"}
             type="button"
             onClick={() => {
               handleButtonClick(clue);
@@ -44,9 +42,6 @@ const SelectClue = (props: Props) => {
           </Button>
         ))}
       </div>
-      <DialogFooter>
-        <Button type="submit">Save changes</Button>
-      </DialogFooter>
     </>
   );
 };
