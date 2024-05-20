@@ -13,9 +13,9 @@ export const LOGIN_URL = "/team/login";
 /**
  * Get Crossword Details
  */
-export const GET_CROSSWORD_DETAILS = "/crossword/get/";
+export const GET_CROSSWORD_DETAILS = "/crossword/get";
 
 /**
  * Update Crossword
  */
-export const UPDATE_CROSSWORD = "/crossword/update/";
+export const UPDATE_CROSSWORD = "/crossword/update";

@@ -1,29 +1,35 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { GET_CROSSWORD_DETAILS, UPDATE_CROSSWORD } from "../api-urls";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 axios.defaults.baseURL = BASE_URL;
+axios.defaults.withCredentials = true;
 
-export const getCrosswordDetails = async (email: string) => {
-  try {
-    const response = await axios.get(`${GET_CROSSWORD_DETAILS}/${email}`);
-    return response.data;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
+export const getCrosswordDetails = (): Promise<AxiosResponse | undefined> => {
+  return axios
+    .get(GET_CROSSWORD_DETAILS)
+    .then((response: AxiosResponse) => {
+      return response;
+    })
+    .catch((error: any) => {
+      if (axios.isAxiosError(error)) {
+        return error.response;
+      }
+    });
 };
 
-export const updateCrossword = async (email: string, crossword: any) => {
-  try {
-    const response = await axios.post(UPDATE_CROSSWORD, {
-      email: email,
-      crossword: crossword,
+export const updateCrossword = (
+  crossword: any
+): Promise<AxiosResponse | undefined> => {
+  return axios
+    .post(UPDATE_CROSSWORD, { crossword })
+    .then((response: AxiosResponse) => {
+      return response;
+    })
+    .catch((error: any) => {
+      if (axios.isAxiosError(error)) {
+        return error.response;
+      }
     });
-    return response.data;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
 };
