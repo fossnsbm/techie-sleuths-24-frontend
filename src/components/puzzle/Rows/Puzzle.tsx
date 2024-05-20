@@ -1,4 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useSearchParams } from "next/navigation";
+import { getCellCount } from "@/data/puzzle/ClueCellCount";
+import { setPuzzleDialog } from "@/store/reducers/puzzleDialog-reducer";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 import {
   RowOne,
   RowTwo,
@@ -39,6 +45,32 @@ import { RowTwentySeven, RowTwentySix } from "./26-30";
 type Props = {};
 
 const Puzzle = (props: Props) => {
+  const dispatch = useDispatch();
+  const searchParams = useSearchParams();
+  const puzzleState: boolean = useSelector(
+    (state: RootState) => state.puzzleDialog.isOpen
+  );
+  useEffect(() => {
+    let direction = searchParams.get("direction");
+    direction = direction === "d" || direction === "a" ? direction : null;
+    const number = parseInt(searchParams.get("number") || "", 10);
+    if (direction && number && !puzzleState) {
+      const cellCount = getCellCount(number, direction as "d" | "a");
+      if (cellCount !== 0) {
+        dispatch(
+          setPuzzleDialog({
+            isOpen: true,
+            clues: [
+              {
+                clueNumber: number,
+                clueDirection: direction as "d" | "a",
+              },
+            ],
+          })
+        );
+      }
+    }
+  }, []);
   return (
     <div className="overflow-x-scroll" style={{ overflowY: "hidden" }}>
       <div style={{ minWidth: "max-content" }}>
