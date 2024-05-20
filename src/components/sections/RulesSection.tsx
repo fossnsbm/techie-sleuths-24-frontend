@@ -32,17 +32,20 @@ function RulesSectionRule(rule: Rule) {
   }, []);
   return (
     <div>
-      <div className="text-2xl lg:text-[48px] flex flex-row items-center justify-between">
-        <div className="text-nowrap bg-slate-900 pr-3">{rule.title}</div>
-        <div className="hidden md:block w-full tracking-widest">
-          ..............................................................
+      <div className='text-2xl lg:text-[48px] flex flex-row items-center justify-between'>
+        <div className='relative w-full text-nowrap  pr-3 overflow-hidden'>
+          <label className='bg-slate-900 pr-5'>{rule.title}</label>
+          <div className='-z-10 absolute bottom-0 hidden md:block w-full tracking-widest'>
+            ............................................................................................................................
+          </div>
         </div>
-        <div className="bg-slate-900">
-          <div className="relative aspect-square h-[50px]">
-            <Image alt="Logo" src="/assets/tile.png" layout="fill" />
+
+        <div className='bg-slate-900 px-5'>
+          <div className='relative aspect-square h-[50px]'>
+            <Image alt='Logo' src='/assets/tile.png' layout='fill' />
 
             <label
-              className="absolute z-10 text-amber-100 text-[42px] left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]"
+              className='absolute z-10 text-amber-100 text-[42px] left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]'
               style={{
                 textShadow: isSmallScreen
                   ? "3px 3px #78350F"
@@ -55,9 +58,9 @@ function RulesSectionRule(rule: Rule) {
         </div>
       </div>
 
-      <div className="pl-0 lg:pl-10 py-4 flex flex-col gap-3">
+      <div className='pl-0 lg:pl-10 py-4 flex flex-col gap-3'>
         {rule.description?.map((desc, index) => (
-          <p className="font-mono font-bold text-white/75" key={index}>
+          <p className='font-mono font-bold text-white/75' key={index}>
             [+] {desc}
           </p>
         ))}
@@ -69,20 +72,20 @@ function RulesSectionRule(rule: Rule) {
 function RulesSection() {
   return (
     <section
-      id="eligibility"
-      className="text-white flex flex-col justify-center items-center"
+      id='eligibility'
+      className='text-white flex flex-col justify-center items-center'
     >
-      <div className="py-16 px-12 w-full max-w-[1200px] flex flex-col gap-10">
-        <div className="text-center md:text-left text-5xl md:text-6xl lg:text-7xl">
-          <label className="" style={{ lineHeight: "36px" }}>
+      <div className='py-16 px-12 w-full max-w-[1200px] flex flex-col gap-10'>
+        <div className='text-center md:text-left text-5xl md:text-6xl lg:text-7xl'>
+          <label className='' style={{ lineHeight: "36px" }}>
             Contest
           </label>
-          <h2 className="text-amber-400" style={{ lineHeight: "36px" }}>
+          <h2 className='text-amber-400' style={{ lineHeight: "36px" }}>
             Rules N Regulations
           </h2>
         </div>
 
-        <div className="flex flex-col gap-5">
+        <div className='flex flex-col gap-5'>
           {Rules.map((rule) => (
             <RulesSectionRule key={rule.id} {...rule} />
           ))}
