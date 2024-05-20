@@ -6,6 +6,9 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 
+import { getClue } from "@/api/clue/getClue";
+import { markClue } from "@/api/clue/markClue";
+
 interface Clue {
   id: number;
   clue: string;
@@ -16,8 +19,10 @@ interface Clue {
 function CluePage({ params }: { params: { key: string } }) {
   const [loading, setLoading] = useState(true);
 
-  const [cheatBanner, setCheatBanner] = useState(false);
-  const [cheatBannerText, setCheatBannerText] = useState("");
+  const [message, setMessage] = useState(false);
+  const [messageText, setMessageText] = useState("");
+
+  const [clue, setClue] = useState<Clue | null>(null);
 
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -35,41 +40,31 @@ function CluePage({ params }: { params: { key: string } }) {
         return;
       }
 
-      setCheatBannerText(
+      setMessageText(
         `Team ${currentTeamName} has cheated by looking at the clue, illegally shared by Team ${involvedTeamName}`,
       );
-      setCheatBanner(true);
+      setMessage(true);
     } else {
       const actknsig = "some-random-string"; // fetch it from the backend by providing the team id who found the clue
       router.push(`/clue/${key}?actkn=${actknsig}`);
     }
   }
 
-  const clues: Clue[] = [
-    {
-      id: 1,
-      clue: "dila's pp size *some might say it is non existent*",
-      answer: "extra small",
-      key: "dilagotsmolppasdasdasfkfhkglahdflkjghaldsfjughoaisjudhfgoiausydtoifuahgigjfvaoijdilagotsmolppasdasdasfkfhkglahdflkjghaldsfjughoaisjudhfgoiausydtoifuahgigjfvaoij",
-    },
-    {
-      id: 2,
-      clue: "dila's favorite color",
-      answer: "blue",
-      key: "dilagotsmolppasdasdasfkfhkglahdflkjghaldsfjughoaisjudhfgoiausydtoifuahgigjfvaoijdilagotsmolppasdasdasfkfhkglahdflkjghaldsfjughoaisjudhfgoiausydtoifuahgigjfvaoig",
-    },
-  ];
-
-  const clue = clues.find((clue) => clue.key === key);
-
   useEffect(() => {
-    if (!clue) {
-      setLoading(false);
-      return;
-    }
+    getClue(key)
+      .catch((error) => {
+        setMessageText("Clue not found! Redirecting to the home page...");
+        setMessage(true);
 
-    checkCheat();
-    setLoading(false);
+        setTimeout(() => {
+          router.push("/");
+        }, 3000);
+      })
+      .then((data) => {
+        setClue(data);
+        checkCheat();
+        setLoading(false);
+      });
   }, []);
 
   const style = {
@@ -115,9 +110,9 @@ function CluePage({ params }: { params: { key: string } }) {
             <>Loading...</>
           ) : (
             <>
-              {cheatBanner ? (
+              {message ? (
                 <label className="w-full text-center text-red-600">
-                  {cheatBannerText}
+                  {messageText}
                 </label>
               ) : (
                 <h1 className="text-center">
