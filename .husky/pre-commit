@@ -1,30 +1,35 @@
 #!/usr/bin/env sh
 
-export NVM_DIR
+export NVM_DIR="$HOME/.nvm"
 
-NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")" # try to find nvm directory
+NODE_GLOBALS="node bun npm yarn pnpm npx"
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # load nvm if it exists
+_load_nvm() {
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-PKG_MGR=""
-SUPPORTED_PKG_MGRS="pnpm yarn npm"
+    node --version >/dev/null
+    npx --version >/dev/null
+}
+
+eval "node(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; node \$@; }"
+eval "bun(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; bun \$@; }"
+
+eval "npm(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; npm \$@; }"
+eval "yarn(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; yarn \$@; }"
+eval "pnpm(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; pnpm \$@; }"
+
+eval "npx(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; npx \$@; }"
+
+unset -f "$NODE_GLOBALS"
+
+RUNNERS="prettier build"
+SUPPORTED_PKG_MGRS=" pnpm yarn npm"
 
 for pm in $SUPPORTED_PKG_MGRS; do
     if command -v "$pm" >/dev/null; then
-        PKG_MGR="$pm"
+        for X in $RUNNERS; do
+            eval "$pm run $X"
+        done
         break
     fi
 done
-
-if [ "$PKG_MGR" = "pnpm" ]; then
-    pnpm run prettier
-    pnpm run build
-elif [ "$PKG_MGR" = "yarn" ]; then
-    yarn run prettier
-    yarn run build
-elif [ "$PKG_MGR" = "npm" ]; then
-    npm run prettier
-    npm run build
-else
-    echo "Unsupported package manager: $PKG_MGR"
-fi

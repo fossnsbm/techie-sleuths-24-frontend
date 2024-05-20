@@ -1,3 +1,25 @@
 #!/usr/bin/env sh
 
+export NVM_DIR="$HOME/.nvm"
+
+NODE_GLOBALS="node bun npm yarn pnpm npx"
+
+_load_nvm() {
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+    node --version >/dev/null
+    npx --version >/dev/null
+}
+
+eval "node(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; node \$@; }"
+eval "bun(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; bun \$@; }"
+
+eval "npm(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; npm \$@; }"
+eval "yarn(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; yarn \$@; }"
+eval "pnpm(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; pnpm \$@; }"
+
+eval "npx(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; npx \$@; }"
+
+unset -f "$NODE_GLOBALS"
+
 npx --no-install commitlint --edit "$1"
