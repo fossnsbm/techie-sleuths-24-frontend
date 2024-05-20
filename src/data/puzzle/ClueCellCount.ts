@@ -63,7 +63,6 @@ const clueCellCount: Clue[] = [
       "b6",
       "b7",
       "b8",
-      "b9",
       "b10",
       "b11",
       "b12",
