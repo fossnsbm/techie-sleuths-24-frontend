@@ -1,16 +1,19 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import Container from "./Container";
-import socialMediaData from "@/data/footer/footerData";
-import footerbg from "../../../public/assets/footerAssets/footer_bg.png";
 import Link from "next/link";
+
+import { Button } from "@/components/ui/button";
+
+import socialMediaData from "@/data/footer/footerData";
+
+import footerbg from "../../../public/assets/footerAssets/footer_bg.png";
+import Container from "./Container";
 
 const Footer = () => {
   return (
-    <div className="w-full h-auto overflow-hidden">
-      <div className="bg-[#A66224] w-full h-[40px] md:h-[100px] lg:h-[130px] xl:h-[170px] bg-[url('/assets/footerAssets/brick-gradient.png')] bg-contain bg-repeat-x bg-center">
+    <div className="h-auto w-full overflow-hidden">
+      <div className="h-[40px] w-full bg-[#A66224] bg-[url('/assets/footerAssets/brick-gradient.png')] bg-contain bg-center bg-repeat-x md:h-[100px] lg:h-[130px] xl:h-[170px]">
         {/* <Image
           alt="Footer Background Image"
           src="/assets/footerAssets/brick_floor2.png"
@@ -23,42 +26,42 @@ const Footer = () => {
           className="bg-repeat bg-contain"
         /> */}
       </div>
-      <div className="h-auto w-[100%] flex flex-row relative bg-black">
+      <div className="relative flex h-auto w-[100%] flex-row bg-black">
         <Image
           alt=""
           src="/assets/footerAssets/2_bushes.png"
           width={120}
           height={100}
-          className="absolute top-0 left-5 md:left:10 w-[60px] md:w-[100px] xl:w-[120px]"
+          className="md:left:10 absolute left-5 top-0 w-[60px] md:w-[100px] xl:w-[120px]"
         />
         <Image
           alt=""
           src="/assets/footerAssets/inverted_mario.png"
           width={50}
           height={100}
-          className="absolute top-0 left-0 ml-[45%] mr-[45%] w-[20px] md:w-[30px] lg:w-[40px]"
+          className="absolute left-0 top-0 ml-[45%] mr-[45%] w-[20px] md:w-[30px] lg:w-[40px]"
         />
         <Image
           alt=""
           src="/assets/footerAssets/plant.png"
           width={50}
           height={50}
-          className="absolute top-0 right-8 md:right-12 xl:right-28 z-10 w-[20px] md:w-[30px] lg:w-[35px]"
+          className="absolute right-8 top-0 z-10 w-[20px] md:right-12 md:w-[30px] lg:w-[35px] xl:right-28"
         />
         <Image
           alt=""
           src="/assets/footerAssets/triangle_bush.png"
           width={150}
           height={50}
-          className="absolute top-0 right-0 w-[35px] md:w-[70px] lg:w-[90px] xl:w-[150px] "
+          className="absolute right-0 top-0 w-[35px] md:w-[70px] lg:w-[90px] xl:w-[150px] "
         />
       </div>
 
-      <div className="w-full h-auto bg-[url('/assets/footerAssets/footer_bg.png')] bg-center bg-no-repeat bg-cover">
+      <div className="h-auto w-full bg-[url('/assets/footerAssets/footer_bg.png')] bg-cover bg-center bg-no-repeat">
         <Container>
           <footer className="py-[50px]">
-            <div className="h-full w-full flex flex-col md:flex-row ">
-              <div className="h-full w-full md:w-[50%] flex flex-col items-center md:items-start justify-center my-[10px]">
+            <div className="flex h-full w-full flex-col md:flex-row ">
+              <div className="my-[10px] flex h-full w-full flex-col items-center justify-center md:w-[50%] md:items-start">
                 {/*Left Container*/}
                 <Image
                   alt="Techie Sleuths Logo"
@@ -72,9 +75,9 @@ const Footer = () => {
                   src="/assets/footerAssets/cloud_inverted.png"
                   height={7}
                   width={100}
-                  className="absolute top-10 md:top-80 left-2 md:-left-5"
+                  className="absolute left-2 top-10 md:-left-5 md:top-80"
                 />
-                <p className="my-[10px] text-[#0C4A6E] text-[20px] text-center md:text-left ">
+                <p className="my-[10px] text-center text-[20px] text-[#0C4A6E] md:text-left ">
                   Techie Sleuths is a mystery-solving adventure
                   <br />
                   game organized by the Women in FOSS. This is tailored
@@ -85,16 +88,16 @@ const Footer = () => {
                   <Button
                     type="submit"
                     variant="default"
-                    className="w-[200px] my-[10px]"
+                    className="my-[10px] w-[200px]"
                   >
                     Register Now
                   </Button>
                 </Link>
               </div>
-              <div className="h-full w-full md:w-[50%] flex flex-col items-center md:items-end justify-center my-[10px]">
+              <div className="my-[10px] flex h-full w-full flex-col items-center justify-center md:w-[50%] md:items-end">
                 {/*Right Container*/}
-                <p className="text-[#0C4A6E] text-[30px]">Organized by</p>
-                <div className="w-[150px] h-auto flex flex-row justify-evenly items-center my-[20px]">
+                <p className="text-[30px] text-[#0C4A6E]">Organized by</p>
+                <div className="my-[20px] flex h-auto w-[150px] flex-row items-center justify-evenly">
                   <Image
                     alt="FOSS Community of NSBM"
                     src="/assets/logos/FOSS_logo.png"
@@ -108,7 +111,7 @@ const Footer = () => {
                     width={70}
                   />
                 </div>
-                <div className="w-[150px] h-auto flex flex-row justify-around items-center my-[10px]">
+                <div className="my-[10px] flex h-auto w-[150px] flex-row items-center justify-around">
                   {socialMediaData.map(({ platform, url, alt, src }) => (
                     <a target="_blank" key={platform} href={url}>
                       <Image alt={alt} src={src} height={20} width={20} />
@@ -120,15 +123,15 @@ const Footer = () => {
                   src="/assets/footerAssets/cloud_inverted.png"
                   height={7}
                   width={100}
-                  className="absolute top-10 -z-10 md:z-10 md:top-20 md:right-60 lg:right-80 lg:mr-60"
+                  className="absolute top-10 -z-10 md:right-60 md:top-20 md:z-10 lg:right-80 lg:mr-60"
                 />
               </div>
             </div>
-            <div className="w-full h-auto flex flex-col md:flex-row justify-center md:justify-between items-center relative">
-              <p className="my-[10px] text-[#0C4A6E] text-[20px]">
+            <div className="relative flex h-auto w-full flex-col items-center justify-center md:flex-row md:justify-between">
+              <p className="my-[10px] text-[20px] text-[#0C4A6E]">
                 2024 foss community of NSBM
               </p>
-              <p className="my-[10px] text-[#0C4A6E] text-[20px] text-center">
+              <p className="my-[10px] text-center text-[20px] text-[#0C4A6E]">
                 {"</>"} with 🖤 by the foss community of NSBM
               </p>
               <Image
