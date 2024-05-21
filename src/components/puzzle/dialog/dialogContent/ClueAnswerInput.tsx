@@ -86,20 +86,25 @@ const ClueAnswerInput = () => {
 
     for (let i = 0; i < cellKeys.length; i++) {
       newCellValues[cellKeys[i]] =
-        values.answer[i] === "_" ? "" : values.answer[i].toUpperCase();
+        values.answer[i] === "_" ? "" : values?.answer[i]?.toUpperCase();
     }
-    const res = await updateCrossword(newCellValues);
-    if (res?.status === 401) {
-      router.push("/login");
-    }
-    if (res?.status === 200) {
-      dispatch(updatePuzzle(res?.data?.boxes));
-      router.replace("/play");
-      dispatch(closePuzzleDialog());
-      toast({
-        title: "Update Successful",
-        description: "Your answer was submitted successfully.",
-      });
+    try {
+      const res = await updateCrossword(newCellValues);
+      if (res?.status === 401) {
+        router.push("/login");
+      }
+      if (res?.status === 200) {
+        dispatch(updatePuzzle(res?.data?.boxes));
+        router.replace("/play");
+        dispatch(closePuzzleDialog());
+        toast({
+          title: "Update Successful",
+          description: "Your answer was submitted successfully.",
+        });
+        setIsLoading(false);
+      }
+    } catch (e) {
+      console.error(e);
       setIsLoading(false);
     }
   }

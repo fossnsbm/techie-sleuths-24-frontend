@@ -196,7 +196,7 @@ const clueCellCount: Clue[] = [
   {
     clueNumber: 19,
     clueDirection: "a",
-    characterCount: 7,
+    characterCount: 8,
     cellRange: ["b58", "b60", "b62", "b68", "b69", "b71", "b75", "b76"],
   },
 ];
