@@ -12,8 +12,9 @@ async function deductScore(
   points: number = 5,
 ) {
   try {
-    const response = await axios.post(`
-      ${DEDUCT_SCORE_URL}/${senderEmail}/${receiverEmail}/${points}`);
+    const response = await axios.post(
+      `/score/deduct/${senderEmail}/${receiverEmail}/${points}`,
+    );
     return response.data;
   } catch (error) {
     console.error(error);

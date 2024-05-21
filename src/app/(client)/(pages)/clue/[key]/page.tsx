@@ -1,5 +1,6 @@
 "use client";
 
+import { CloudHail } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
 import Image from "next/image";
@@ -39,10 +40,10 @@ function CluePage({ params }: { params: { key: string } }) {
 
   function checkCheat() {
     const actkn = searchParams.get("actkn");
-    const localTeamEmail = window.localStorage.getItem("email");
-    const auth = window.localStorage.getItem("auth");
+    const localTeamEmail = localStorage.getItem("email");
+    const auth = localStorage.getItem("auth");
 
-    if (!localTeamEmail || !auth) {
+    if (!localTeamEmail) {
       setMessageText("Please login first...");
       setMessage(true);
 
@@ -52,7 +53,7 @@ function CluePage({ params }: { params: { key: string } }) {
       return;
     }
 
-    if (actkn && window) {
+    if (actkn) {
       const fingerprintedTeam = atob(actkn);
 
       if (localTeamEmail === fingerprintedTeam) {
@@ -177,7 +178,7 @@ function CluePage({ params }: { params: { key: string } }) {
                         );
                       }}
                     >
-                      Fill Puzzel
+                      Fill Puzzle
                     </Button>
                   )}
                 </>

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { decode } from "jsonwebtoken";
 
 import { LOGIN_URL, REGISTER_URL } from "../api-urls";
 
@@ -58,7 +59,11 @@ export const loginTeam = async (email: string, password: string) => {
       },
       withCredentials: true,
     });
+    const token = response.data.token.jwt_token;
+    const decodetoken: any = decode(token);
 
+    // console.log("token: ", decode(token));
+    localStorage.setItem("email", decodetoken.team.tl_email);
     return response.data;
   } catch (error) {
     console.error(error);
