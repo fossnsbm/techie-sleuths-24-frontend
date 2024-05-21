@@ -10,10 +10,15 @@ import { getClue } from "@/api/clue/getClue";
 import { markClue } from "@/api/clue/markClue";
 
 interface Clue {
-  id: number;
-  clue: string;
-  answer: string;
-  key: string;
+  ID: number;
+  CreatedAt: string;
+  UpdatedAt: string;
+  DeletedAt: string;
+  clue_id: string;
+  clue_hint: string;
+  clue_points: number;
+  clue_box_number: number;
+  clue_box_direction: string;
 }
 
 function CluePage({ params }: { params: { key: string } }) {
@@ -31,21 +36,33 @@ function CluePage({ params }: { params: { key: string } }) {
 
   function checkCheat() {
     const actkn = searchParams.get("actkn");
+    const localTeamEmail = window.localStorage.getItem("email");
+    console.log("localTeamEmail", localTeamEmail);
+
+    if (!localTeamEmail) {
+      setMessageText("Please login first...");
+      setMessage(true);
+
+      setTimeout(() => {
+        router.push("/");
+      }, 3000);
+      return;
+    }
 
     if (actkn && window) {
-      let currentTeamName = "Team 1"; // fetch it from the backend using session cookie
-      let involvedTeamName = "Team 1"; // fetch it from the backend using actkn
+      const fingerprintedTeam = atob(actkn);
 
-      if (currentTeamName === involvedTeamName) {
+      if (localTeamEmail === fingerprintedTeam) {
         return;
       }
 
       setMessageText(
-        `Team ${currentTeamName} has cheated by looking at the clue, illegally shared by Team ${involvedTeamName}`,
+        `You have been caught cheating! Talk to one of the officials to get unbanned and continue playing...`,
       );
       setMessage(true);
     } else {
-      const actknsig = "some-random-string"; // fetch it from the backend by providing the team id who found the clue
+      const actknsig = btoa(localTeamEmail);
+
       router.push(`/clue/${key}?actkn=${actknsig}`);
     }
   }
@@ -54,6 +71,7 @@ function CluePage({ params }: { params: { key: string } }) {
     getClue(key)
       .catch((error) => {
         setMessageText("Clue not found! Redirecting to the home page...");
+        console.error(error);
         setMessage(true);
 
         setTimeout(() => {
@@ -61,7 +79,11 @@ function CluePage({ params }: { params: { key: string } }) {
         }, 3000);
       })
       .then((data) => {
-        setClue(data);
+        if (data) {
+          setClue(data.clue);
+        } else {
+          return;
+        }
         checkCheat();
         setLoading(false);
       });
@@ -116,7 +138,15 @@ function CluePage({ params }: { params: { key: string } }) {
                 </label>
               ) : (
                 <h1 className="text-center">
-                  {clue ? <>Clue: {clue.clue}</> : <>Clue not found</>}
+                  {clue ? (
+                    <>
+                      {clue.clue_box_number}{" "}
+                      {clue.clue_box_direction == "a" ? "across" : "down"} :{" "}
+                      {clue.clue_hint}
+                    </>
+                  ) : (
+                    <>Clue not found</>
+                  )}
                 </h1>
               )}
             </>

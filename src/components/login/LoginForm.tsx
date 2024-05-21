@@ -71,6 +71,7 @@ export default function LoginForm() {
       });
     } finally {
       setLoading(false);
+      window.localStorage.setItem("email", email);
     }
   };
 
