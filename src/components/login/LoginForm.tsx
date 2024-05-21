@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { loginTeam } from "@/api/auth/authApi";
@@ -110,19 +109,6 @@ export default function LoginForm() {
         )}
       </div>
 
-      <div className="my-9 flex px-3 text-[#5A270B]">
-        <center>
-          <h1 className="text-2xl">
-            Forget password?{" "}
-            <Link
-              href="/"
-              className="cursor-pointer underline transition duration-200 hover:text-[#A66224] active:text-[#A66224] "
-            >
-              Get a new one
-            </Link>
-          </h1>
-        </center>
-      </div>
       <Button
         className="mt-5 "
         onClick={handleLogin}
