@@ -21,7 +21,7 @@ export default function Page() {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://techiesleuths-backend-webapp-prod.azurewebsites.net/api/v1/score/all-teams?all_details=true&high_to_low=true"
+          "https://techiesleuths-backend-webapp-prod.azurewebsites.net/api/v1/score/all-teams?all_details=true&high_to_low=true",
         );
 
         if (response.status !== 200) {
@@ -36,7 +36,7 @@ export default function Page() {
             name: `${index + 1}. ${item.team.team_name}`,
             value: item.score.score,
             href: item.team.team_profile_img_url,
-          })
+          }),
         );
 
         setData(transformedData);

@@ -1,18 +1,18 @@
 "use client";
-import Image from "next/image";
+
 import React, { Suspense, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import { getCrosswordDetails } from "@/api/puzzle/puzzleApi";
 import { updatePuzzle } from "@/store/reducers/puzzle-reducer";
 
+import Clouds from "@/components/puzzle/Clouds";
 import Puzzle from "@/components/puzzle/Rows/Puzzle";
 import PuzzleDialog from "@/components/puzzle/dialog/PuzzleDialog";
 import { useToast } from "@/components/ui/use-toast";
-
-import Clouds from "@/components/puzzle/Clouds";
 
 export default function PuzzlePage() {
   const dispatch = useDispatch();
@@ -46,8 +46,8 @@ export default function PuzzlePage() {
   return (
     <div className="bg-sky-200 px-[3%] py-8">
       <PuzzleDialog />
-      <div className="text-center relative overflow-hidden">
-        <Clouds/>
+      <div className="relative overflow-hidden text-center">
+        <Clouds />
         <Suspense>
           <Puzzle />
         </Suspense>
