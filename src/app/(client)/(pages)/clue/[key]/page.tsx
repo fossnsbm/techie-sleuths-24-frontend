@@ -8,6 +8,9 @@ import { useSearchParams } from "next/navigation";
 
 import { getClue } from "@/api/clue/getClue";
 import { markClue } from "@/api/clue/markClue";
+import { deductScore } from "@/api/score/deductScore";
+
+import { Button } from "@/components/ui/button";
 
 interface Clue {
   ID: number;
@@ -37,14 +40,14 @@ function CluePage({ params }: { params: { key: string } }) {
   function checkCheat() {
     const actkn = searchParams.get("actkn");
     const localTeamEmail = window.localStorage.getItem("email");
-    console.log("localTeamEmail", localTeamEmail);
+    const auth = window.localStorage.getItem("auth");
 
-    if (!localTeamEmail) {
+    if (!localTeamEmail || !auth) {
       setMessageText("Please login first...");
       setMessage(true);
 
       setTimeout(() => {
-        router.push("/");
+        router.push("/login");
       }, 3000);
       return;
     }
@@ -57,13 +60,21 @@ function CluePage({ params }: { params: { key: string } }) {
       }
 
       setMessageText(
-        `You have been caught cheating! Talk to one of the officials to get unbanned and continue playing...`,
+        `You have been caught cheating! Talk to one of the officials to get unbanned and continue playing... points were deducted from both teams scores as a penatly!`,
       );
       setMessage(true);
+
+      deductScore(localTeamEmail, fingerprintedTeam, 5).catch((error) => {
+        console.error(error);
+      });
     } else {
       const actknsig = btoa(localTeamEmail);
 
       router.push(`/clue/${key}?actkn=${actknsig}`);
+
+      markClue(key, localTeamEmail).catch((error) => {
+        console.error(error);
+      });
     }
   }
 
@@ -84,7 +95,15 @@ function CluePage({ params }: { params: { key: string } }) {
         } else {
           return;
         }
-        checkCheat();
+        try {
+          checkCheat();
+        } catch (error) {
+          console.error(error);
+          setMessageText(
+            "An unknown error occurred check your connection and try reloading the page...",
+          );
+          setMessage(true);
+        }
         setLoading(false);
       });
   }, []);
@@ -137,17 +156,31 @@ function CluePage({ params }: { params: { key: string } }) {
                   {messageText}
                 </label>
               ) : (
-                <h1 className="text-center">
-                  {clue ? (
-                    <>
-                      {clue.clue_box_number}{" "}
-                      {clue.clue_box_direction == "a" ? "across" : "down"} :{" "}
-                      {clue.clue_hint}
-                    </>
-                  ) : (
-                    <>Clue not found</>
+                <>
+                  <h1 className="text-center">
+                    {clue ? (
+                      <>
+                        {clue.clue_box_number}{" "}
+                        {clue.clue_box_direction == "a" ? "across" : "down"} :{" "}
+                        {clue.clue_hint}
+                      </>
+                    ) : (
+                      <>Clue not found</>
+                    )}
+                  </h1>
+
+                  {clue && (
+                    <Button
+                      onClick={() => {
+                        router.push(
+                          `/play?number=${clue.clue_box_number}&direction=${clue.clue_box_direction}`,
+                        );
+                      }}
+                    >
+                      Fill Puzzel
+                    </Button>
                   )}
-                </h1>
+                </>
               )}
             </>
           )}
