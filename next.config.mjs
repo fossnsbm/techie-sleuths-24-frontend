@@ -7,11 +7,6 @@ const nextConfig = {
         destination: "/",
         permanent: false,
       },
-      {
-        source: "/register",
-        destination: "/",
-        permanent: false,
-      },
     ];
   },
 };
