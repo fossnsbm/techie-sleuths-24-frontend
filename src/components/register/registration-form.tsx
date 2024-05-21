@@ -8,16 +8,16 @@ export default function RegistrationForm() {
   };
 
   return (
-    <div className="relative z-10 min-h-[75vh] gird place-content-center w-full">
+    <div className="gird relative z-10 min-h-[75vh] w-full place-content-center">
       <div
         style={{
           boxShadow: style.boxShadowLarge,
         }}
-        className="relative mx-7  md:max-w-5xl md:mx-auto bg-[#FEF3C7] py-10 border-8 border-[#A66224]"
+        className="relative mx-7  border-8 border-[#A66224] bg-[#FEF3C7] py-10 md:mx-auto md:max-w-5xl"
       >
         <div
           style={{ boxShadow: style.boxShadowLittle }}
-          className={`top-0 mt-2 ml-2 ${style.littleBoxStyle}`}
+          className={`top-0 ml-2 mt-2 ${style.littleBoxStyle}`}
         />
         <div
           style={{ boxShadow: style.boxShadowLittle }}
@@ -25,13 +25,13 @@ export default function RegistrationForm() {
         />
         <div
           style={{ boxShadow: style.boxShadowLittle }}
-          className={`right-0 bottom-0 mb-2 mr-2 ${style.littleBoxStyle}`}
+          className={`bottom-0 right-0 mb-2 mr-2 ${style.littleBoxStyle}`}
         />
         <div
           style={{ boxShadow: style.boxShadowLittle }}
-          className={`right-0 top-0 mt-2 mr-2 ${style.littleBoxStyle}`}
+          className={`right-0 top-0 mr-2 mt-2 ${style.littleBoxStyle}`}
         />
-        <h1 className="absolute top-5 md:top-2 left-1/2 transform -translate-x-1/2 text-center text-3xl md:text-6xl text-[#5A270B]">
+        <h1 className="absolute left-1/2 top-5 -translate-x-1/2 transform text-center text-3xl text-[#5A270B] md:top-2 md:text-6xl">
           Enter game
         </h1>
         <div className="w-full">

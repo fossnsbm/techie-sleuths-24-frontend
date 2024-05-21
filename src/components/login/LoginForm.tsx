@@ -1,12 +1,20 @@
 "use client";
 
-import { loginTeam } from "@/api/auth/authApi";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import Link from "next/link";
 import { useState } from "react";
 
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+import { loginTeam } from "@/api/auth/authApi";
+
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
+
+import { ToastAction } from "../ui/toast";
+
 export default function LoginForm() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -14,19 +22,19 @@ export default function LoginForm() {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
+  const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,20}$/;
+
+  const { toast } = useToast();
+
   const handleLogin = async () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
     let hasError = false;
 
     if (!email.trim()) {
       setEmailError("Email is required *");
-      console.log("Email is required");
       hasError = true;
     } else if (!emailRegex.test(email)) {
       setEmailError("Invalid email format *");
-      console.log("Invalid email format");
       hasError = true;
     } else {
       setEmailError("");
@@ -38,7 +46,7 @@ export default function LoginForm() {
       hasError = true;
     } else if (!passwordRegex.test(password)) {
       setPasswordError(
-        "Password must be a mix of uppercase, lowercase, numbers, and special characters, and between 8 and 20 characters long *"
+        "Password must be a mix of uppercase, lowercase, numbers, and special characters, and between 8 and 20 characters long *",
       );
       hasError = true;
     } else {
@@ -48,16 +56,19 @@ export default function LoginForm() {
     if (hasError) {
       return;
     }
-
     setLoading(true);
-    console.log(email, password);
     try {
       setEmailError("");
       setPasswordError("");
       const res = await loginTeam(email, password);
-      console.log("_res", res);
+      router.push("/play");
     } catch (error: any) {
-      console.log("Error: ", error.response.data.error);
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: error.response.data.error,
+        action: <ToastAction altText="Try again">Try again</ToastAction>,
+      });
     } finally {
       setLoading(false);
     }
@@ -66,45 +77,45 @@ export default function LoginForm() {
   return (
     <>
       <Input
-        className=" transition duration-300 text-2xl placeholder:text-[#5A270B] text-[#5A270B] mt-5 bg-[#FEF3C7] w-[80%] sm:w-[70%] h-[12%] border-4 border-[#5A270B]  drop-shadow-lg hover:shadow-[0px_0px_0px_0px_rgba(0,0,0,0)]  shadow-[6px_6px_0px_0px_rgba(90,39,11,1)]  rounded-none "
+        className=" mt-5 h-[12%] w-[80%] rounded-none border-4 border-[#5A270B] bg-[#FEF3C7] text-2xl text-[#5A270B] shadow-[6px_6px_0px_0px_rgba(90,39,11,1)] drop-shadow-lg transition  duration-300 placeholder:text-[#5A270B]  hover:shadow-[0px_0px_0px_0px_rgba(0,0,0,0)]  sm:w-[70%] "
         type="email"
         placeholder="TEAM EMAIL*"
         onChange={(e) => setEmail(e.target.value)}
       />
-      <div className="w-[80%] sm:w-[70%] flex justify-start items-center mt-1">
+      <div className="mt-1 flex w-[80%] items-center justify-start sm:w-[70%]">
         {emailError && (
-          <p className="text-red-500 text-xl text-center">{emailError}</p>
+          <p className="text-center text-xl text-red-500">{emailError}</p>
         )}
       </div>
-      <div className="w-[80%] sm:w-[70%] h-auto flex justify-center items-center relative">
-        <div className="h-[70%] w-[25%] md:w-[15%] absolute z-10 right-0 bottom-0 flex justify-center items-center">
+      <div className="relative flex h-auto w-[80%] items-center justify-center sm:w-[70%]">
+        <div className="absolute bottom-0 right-0 z-10 flex h-[70%] w-[25%] items-center justify-center md:w-[15%]">
           <h1
-            className="text-[20px] text-[#5A270B] cursor-pointer hover:text-[#A66224] transition duration-300"
+            className="cursor-pointer text-[20px] text-[#5A270B] transition duration-300 hover:text-[#A66224]"
             onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? "HIDE" : "SHOW"}
           </h1>
         </div>
         <Input
-          className="transition duration-300 text-2xl placeholder:text-[#5A270B] pr-[29%] text-[#5A270B] mt-5 bg-[#FEF3C7] w-[100%]  sm:w-[100%] h-[12%] border-4 border-[#5A270B]  drop-shadow-lg hover:shadow-[0px_0px_0px_0px_rgba(0,0,0,0)] shadow-[6px_6px_0px_0px_rgba(90,39,11,1)]  rounded-none "
+          className="mt-5 h-[12%] w-[100%] rounded-none border-4 border-[#5A270B] bg-[#FEF3C7] pr-[29%] text-2xl  text-[#5A270B] shadow-[6px_6px_0px_0px_rgba(90,39,11,1)] drop-shadow-lg transition  duration-300 placeholder:text-[#5A270B] hover:shadow-[0px_0px_0px_0px_rgba(0,0,0,0)]  sm:w-[100%] "
           type={showPassword ? "text" : "password"}
           placeholder="PASSWORD*"
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <div className=" w-[80%] sm:w-[70%] flex justify-start items-center mt-1">
+      <div className=" mt-1 flex w-[80%] items-center justify-start sm:w-[70%]">
         {passwordError && (
-          <p className="text-red-500 text-xl text-center">{passwordError}</p>
+          <p className="text-center text-xl text-red-500">{passwordError}</p>
         )}
       </div>
 
-      <div className="flex text-[#5A270B] my-9 px-3">
+      <div className="my-9 flex px-3 text-[#5A270B]">
         <center>
           <h1 className="text-2xl">
             Forget password?{" "}
             <Link
               href="/"
-              className="underline cursor-pointer hover:text-[#A66224] transition duration-200 active:text-[#A66224] "
+              className="cursor-pointer underline transition duration-200 hover:text-[#A66224] active:text-[#A66224] "
             >
               Get a new one
             </Link>

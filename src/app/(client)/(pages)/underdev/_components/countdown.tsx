@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const Countdown = () => {
   // Screen size state
@@ -69,15 +69,15 @@ const Countdown = () => {
   }, []); // Ensure useEffect runs only once
 
   return (
-    <div className='countdown justify-center flex my-6 md:my-10'>
-      <div className='countdown-item-wrapper relative flex flex-col items-center mr-6'>
-        <div className='countdown-item relative'>
+    <div className="countdown my-6 flex justify-center md:my-10">
+      <div className="countdown-item-wrapper relative mr-6 flex flex-col items-center">
+        <div className="countdown-item relative">
           <img
-            src='/assets/tile.png'
-            alt='Tile'
-            className='w-16 h-16 sm:w-32 sm:h-32 object-cover'
+            src="/assets/tile.png"
+            alt="Tile"
+            className="h-16 w-16 object-cover sm:h-32 sm:w-32"
           />
-          <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-amber-100 text-3xl sm:text-5xl md:text-7xl text-center mt-4'>
+          <div className="absolute left-1/2 top-1/2 mt-4 -translate-x-1/2 -translate-y-1/2 transform text-center text-3xl text-amber-100 sm:text-5xl md:text-7xl">
             <span
               style={{
                 position: "relative",
@@ -90,7 +90,7 @@ const Countdown = () => {
               {timeLeft.days}
             </span>
             <div
-              className='text-amber-100 text-xs sm:text-lg md:text-xl mb-10  shadow-lg'
+              className="mb-10 text-xs text-amber-100 shadow-lg sm:text-lg  md:text-xl"
               style={{ position: "relative", top: "-0.4rem" }}
             >
               Days
@@ -98,14 +98,14 @@ const Countdown = () => {
           </div>
         </div>
       </div>
-      <div className='countdown-item-wrapper relative flex flex-col items-center mr-6'>
-        <div className='countdown-item relative'>
+      <div className="countdown-item-wrapper relative mr-6 flex flex-col items-center">
+        <div className="countdown-item relative">
           <img
-            src='/assets/tile.png'
-            alt='Tile'
-            className='w-16 h-16 sm:w-32 sm:h-32 object-cover'
+            src="/assets/tile.png"
+            alt="Tile"
+            className="h-16 w-16 object-cover sm:h-32 sm:w-32"
           />
-          <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-amber-100 text-3xl sm:text-5xl md:text-7xl text-center mt-4'>
+          <div className="absolute left-1/2 top-1/2 mt-4 -translate-x-1/2 -translate-y-1/2 transform text-center text-3xl text-amber-100 sm:text-5xl md:text-7xl">
             <span
               style={{
                 position: "relative",
@@ -118,7 +118,7 @@ const Countdown = () => {
               {timeLeft.hours}
             </span>
             <div
-              className='text-amber-100 text-xs sm:text-lg md:text-xl mb-10  shadow-lg'
+              className="mb-10 text-xs text-amber-100 shadow-lg sm:text-lg  md:text-xl"
               style={{ position: "relative", top: "-0.4rem" }}
             >
               Hours
@@ -126,14 +126,14 @@ const Countdown = () => {
           </div>
         </div>
       </div>
-      <div className='countdown-item-wrapper relative flex flex-col items-center mr-6'>
-        <div className='countdown-item relative'>
+      <div className="countdown-item-wrapper relative mr-6 flex flex-col items-center">
+        <div className="countdown-item relative">
           <img
-            src='/assets/tile.png'
-            alt='Tile'
-            className='w-16 h-16 sm:w-32 sm:h-32 object-cover'
+            src="/assets/tile.png"
+            alt="Tile"
+            className="h-16 w-16 object-cover sm:h-32 sm:w-32"
           />
-          <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-amber-100 text-3xl sm:text-5xl md:text-7xl text-center mt-4'>
+          <div className="absolute left-1/2 top-1/2 mt-4 -translate-x-1/2 -translate-y-1/2 transform text-center text-3xl text-amber-100 sm:text-5xl md:text-7xl">
             <span
               style={{
                 position: "relative",
@@ -146,7 +146,7 @@ const Countdown = () => {
               {timeLeft.minutes}
             </span>
             <div
-              className='text-amber-100 text-xs sm:text-lg md:text-xl mb-10  shadow-lg'
+              className="mb-10 text-xs text-amber-100 shadow-lg sm:text-lg  md:text-xl"
               style={{ position: "relative", top: "-0.4rem" }}
             >
               Minutes
@@ -154,14 +154,14 @@ const Countdown = () => {
           </div>
         </div>
       </div>
-      <div className='countdown-item-wrapper relative flex flex-col items-center'>
-        <div className='countdown-item relative'>
+      <div className="countdown-item-wrapper relative flex flex-col items-center">
+        <div className="countdown-item relative">
           <img
-            src='/assets/tile.png'
-            alt='Tile'
-            className='w-16 h-16 sm:w-32 sm:h-32 object-cover'
+            src="/assets/tile.png"
+            alt="Tile"
+            className="h-16 w-16 object-cover sm:h-32 sm:w-32"
           />
-          <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-amber-100 text-3xl sm:text-5xl md:text-7xl text-center mt-4'>
+          <div className="absolute left-1/2 top-1/2 mt-4 -translate-x-1/2 -translate-y-1/2 transform text-center text-3xl text-amber-100 sm:text-5xl md:text-7xl">
             <span
               style={{
                 position: "relative",
@@ -174,7 +174,7 @@ const Countdown = () => {
               {timeLeft.seconds}
             </span>
             <div
-              className='text-amber-100 text-xs sm:text-lg md:text-lg mb-10 shadow-lg'
+              className="mb-10 text-xs text-amber-100 shadow-lg sm:text-lg md:text-lg"
               style={{ position: "relative", top: "-0.4rem" }}
             >
               Seconds

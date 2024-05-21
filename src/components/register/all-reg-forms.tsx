@@ -1,8 +1,11 @@
 "use client";
 
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+
+import { registerTeam } from "@/api/auth/authApi";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -13,10 +16,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useToast } from "../ui/use-toast";
-import { useState } from "react";
+
 import { ToastAction } from "../ui/toast";
-import { registerTeam } from "@/api/auth/authApi";
+import { useToast } from "../ui/use-toast";
 
 export default function AllRegForms() {
   const { toast } = useToast();
@@ -39,12 +41,12 @@ export default function AllRegForms() {
       .refine(
         (value) =>
           /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&*+-_#])[A-Za-z\d@$!%?&*+-_#]{8,50}$/.test(
-            value
+            value,
           ),
         {
           message:
             "Password must contain at least one uppercase letter, one lowercase letter, one symbol, and one number",
-        }
+        },
       ),
     tl_name: z
       .string()
@@ -130,7 +132,7 @@ export default function AllRegForms() {
         member3_name || "",
         member3_student_id || "",
         member4_name || "",
-        member4_student_id || ""
+        member4_student_id || "",
       );
       setLoading(false);
       localStorage.setItem("jwtToken", res.token);
@@ -156,11 +158,11 @@ export default function AllRegForms() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto mt-10">
+    <div className="mx-auto mt-10 max-w-4xl">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex flex-col items-center gap-8 overflow-y-scroll max-h-[600px]"
+          className="flex max-h-[600px] flex-col items-center gap-8 overflow-y-scroll"
         >
           <FormField
             control={form.control}
@@ -258,7 +260,7 @@ export default function AllRegForms() {
               </FormItem>
             )}
           />
-          <div className="text-xl md:text-3xl text-[#5A270B] text-center">
+          <div className="text-center text-xl text-[#5A270B] md:text-3xl">
             ***3rd and 4th Members are optional***
           </div>
           <FormField
@@ -309,7 +311,7 @@ export default function AllRegForms() {
               </FormItem>
             )}
           />
-          <div className="text-xl md:text-3xl text-[#5A270B] text-center px-1">
+          <div className="px-1 text-center text-xl text-[#5A270B] md:text-3xl">
             ***Please read the rules and regulations before you get
             registered***
           </div>

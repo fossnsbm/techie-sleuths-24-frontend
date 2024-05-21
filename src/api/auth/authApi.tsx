@@ -1,5 +1,6 @@
 import axios from "axios";
-import { REGISTER_URL, LOGIN_URL } from "../api-urls";
+
+import { LOGIN_URL, REGISTER_URL } from "../api-urls";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -19,7 +20,7 @@ export const registerTeam = async (
   member4_name: string,
   member4_student_id: string,
   anti_spam_question: boolean = true,
-  anti_spam_question_description: string = "What is the capital of India?"
+  anti_spam_question_description: string = "What is the capital of India?",
 ) => {
   try {
     const response = await axios.post(REGISTER_URL, {
@@ -55,6 +56,7 @@ export const loginTeam = async (email: string, password: string) => {
         team_leader_email: email,
         password: password,
       },
+      withCredentials: true,
     });
 
     return response.data;
