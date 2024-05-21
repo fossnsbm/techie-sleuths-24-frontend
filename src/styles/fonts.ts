@@ -1,5 +1,5 @@
-import localFont from "next/font/local";
 import { JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 
 export const jetbrains = JetBrains_Mono({
   subsets: ["latin"],

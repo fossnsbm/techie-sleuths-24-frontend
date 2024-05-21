@@ -1,3 +1,31 @@
-#!/usr/bin/env sh
+# #!/usr/bin/env sh
 
-yarn build
+# PKG_MGRS="pnpm yarn npm"
+# NODE_GLOBALS="node bun $PKG_MGRS npx"
+
+# NVM_DIR="$HOME/.nvm"
+
+# if [ -d "$NVM_DIR" ]; then
+#     _load_nvm() {
+#         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+#         node --version >/dev/null
+#         npx --version >/dev/null
+#     }
+
+#     for cmd in $NODE_GLOBALS; do
+#         eval "$cmd(){ unset -f $NODE_GLOBALS; _load_nvm; unset -f _load_nvm; $cmd \$@; }"
+#     done
+
+#     unset -f "$NODE_GLOBALS"
+# fi
+
+# RUNNERS="prettier build"
+# for pm in $PKG_MGRS; do
+#     if command -v "$pm" >/dev/null; then
+#         for X in $RUNNERS; do
+#             eval "$pm run $X"
+#         done
+#         break
+#     fi
+# done

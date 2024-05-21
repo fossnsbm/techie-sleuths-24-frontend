@@ -1,8 +1,12 @@
 "use client";
-import NavigationLinks from "@/data/nav/nav";
+
 import { useState } from "react";
-import { Button, buttonVariants } from "../ui/button";
+
 import Link from "next/link";
+
+import NavigationLinks from "@/data/nav/nav";
+
+import { Button, buttonVariants } from "../ui/button";
 
 export default function NavigationMenuHamburger() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,28 +16,28 @@ export default function NavigationMenuHamburger() {
   };
   const [activeLink, setActiveLink] = useState<number | null>(null);
   return (
-    <div className="flex flex-col items-end justify-center z-50 py-16 px-5">
+    <div className="z-50 flex flex-col items-end justify-center py-16">
       <button onClick={handleClick}>
         {/* Hamburger icon */}
         <span
-          className={`bg-gray-900 block transition-all duration-300 ease-out h-1 w-6  ${
-            isOpen ? "rotate-45 translate-y-1.5" : "-translate-y-0.5"
+          className={`block h-1 w-6 bg-gray-900 transition-all duration-300 ease-out  ${
+            isOpen ? "translate-y-1.5 rotate-45" : "-translate-y-0.5"
           }`}
         ></span>
         <span
-          className={`bg-gray-900 block h-1 w-6  my-0.5 ${
+          className={`my-0.5 block h-1 w-6  bg-gray-900 ${
             isOpen ? "opacity-0" : "opacity-100"
           }`}
         ></span>
         <span
-          className={`bg-gray-900 block transition-all duration-300 ease-out h-1 w-6  ${
-            isOpen ? "-rotate-45 -translate-y-1.5" : "translate-y-0.5"
+          className={`block h-1 w-6 bg-gray-900 transition-all duration-300 ease-out  ${
+            isOpen ? "-translate-y-1.5 -rotate-45" : "translate-y-0.5"
           }`}
         ></span>
       </button>
       <div
-        className={`absolute right-0 mt-64 w-48 rounded-md shadow-lg bg-gray-0 z-50 ring- p-5 justify-center items-center transition-all duration-200 ease-in-out gap-5 ${
-          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        className={`bg-gray-0 ring- absolute right-0 z-50 mt-64 w-48 items-center justify-center gap-5 rounded-md bg-sky-100 p-5 shadow-lg transition-all duration-200 ease-in-out ${
+          isOpen ? "visible opacity-100" : "invisible opacity-0"
         }`}
       >
         <div

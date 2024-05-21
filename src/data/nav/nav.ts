@@ -1,16 +1,15 @@
 import { INavBar } from "@/types/nav";
-import exp from "constants";
 
 const NavigationLinks: INavBar[] = [
   {
     id: 1,
     title: "ELIGIBILITY",
-    link: "/",
+    link: "/#eligibility",
   },
   {
     id: 2,
-    title: "PUZZLES",
-    link: "/",
+    title: "PUZZLE",
+    link: "/play",
   },
   {
     id: 3,

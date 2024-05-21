@@ -1,6 +1,10 @@
 "use client";
-import Image from "next/image";
+
 import { useEffect, useState } from "react";
+
+import Image from "next/image";
+import Link from "next/link";
+
 import CoinsRow from "../ui/coins-line";
 import EventDetailsMarquee from "../ui/marquee";
 
@@ -35,33 +39,33 @@ export default function EventDetails() {
   const defaultHeight = 250;
 
   return (
-    <div className="w-full min-h-full bg-slate-900 relative flex flex-col items-center pt-16 pb-16">
+    <div className="relative flex min-h-full w-full flex-col items-center bg-slate-900 pb-16 pt-16">
       <EventDetailsMarquee />
-      <div className="w-full flex flex-col md:flex-row justify-center items-center px-2 gap-6 pt-16">
-        <div className="flex flex-col items-center md:items-start gap-8 pr-12 pl-12">
+      <div className="flex w-full flex-col items-center justify-center gap-6 px-2 pt-16 md:flex-row">
+        <div className="flex flex-col items-center gap-8 pl-12 pr-12 md:items-start">
           <Image
             alt="eventDetails"
             src="/assets/eventDetails.png"
             width={defaultWidth}
             height={defaultHeight}
             className="
-                            sm:w-60 sm:h-75
-                            md:w-72 md:h-90
+                            sm:h-75 md:h-90
                             lg:w-88 lg:h-110
+                            sm:w-60 md:w-72
                         "
           />
         </div>
-        <div className="flex flex-col gap-6 items-center md:items-start pr-12 pl-12">
-          <h1 className="text-center md:text-left gap-4 sm:gap-0">
-            <span className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl px-2">
+        <div className="flex flex-col items-center gap-6 pl-12 pr-12 md:items-start">
+          <h1 className="gap-4 text-center sm:gap-0 md:text-left">
+            <span className="px-2 text-4xl text-white sm:text-5xl md:text-6xl lg:text-7xl">
               WHAT IS
             </span>
-            <span className="block mt-2 sm:mt-0 text-amber-400 text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
+            <span className="mt-2 block text-5xl text-amber-400 sm:mt-0 sm:text-6xl md:text-7xl lg:text-8xl">
               Techie Sleuths?
             </span>
           </h1>
           <p
-            className="text-lg text-white font-mono leading-loose text-center md:text-left"
+            className="text-center font-mono text-lg leading-loose text-white md:text-left"
             style={{
               textShadow: "0 0 12px rgba(255, 255, 255, 0.49)",
               letterSpacing: "3px",
@@ -77,9 +81,11 @@ export default function EventDetails() {
             <br />
             with our Faculty of Computing.
           </p>
-          <p className="text-3xl text-white cursor-pointer flex items-center text-center md:text-left">
-            View past events <span className="ml-2">{">"}</span>
-          </p>
+          <Link href="https://web.facebook.com/wifnsbm" target="_blank">
+            <p className="flex cursor-pointer items-center text-center text-3xl text-white md:text-left">
+              View past events <span className="ml-2">{">"}</span>
+            </p>
+          </Link>
         </div>
       </div>
       <div className="pt-16">
