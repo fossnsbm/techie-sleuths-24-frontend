@@ -39,8 +39,10 @@ export default function NavBar() {
                 </Link>
               ))}
             </div>
-            <Link href={"/register"}>
-              <Button className="ml-10 text-2xl">REGISTER NOW</Button>
+
+            <Link href={"/login"}>
+              <Button className="ml-10 text-2xl">LOGIN</Button>
+
             </Link>
           </div>
 
