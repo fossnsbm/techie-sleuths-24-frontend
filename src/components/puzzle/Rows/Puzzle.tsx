@@ -77,7 +77,7 @@ const Puzzle = (props: Props) => {
     }
   }, []);
   return (
-    <div className="overflow-x-scroll" style={{ overflowY: "hidden" }}>
+    <div className="overflow-x-scroll z-10" style={{ overflowY: "hidden" }}>
       <div style={{ minWidth: "max-content" }}>
         <div className="inline-grid grid-cols-22 gap-0">
           {/* row 1-5 start */}
