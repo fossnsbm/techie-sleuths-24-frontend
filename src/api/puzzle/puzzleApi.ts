@@ -7,30 +7,28 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 axios.defaults.baseURL = BASE_URL;
 axios.defaults.withCredentials = true;
 
-export const getCrosswordDetails = (): Promise<AxiosResponse | undefined> => {
-  return axios
-    .get(GET_CROSSWORD_DETAILS)
-    .then((response: AxiosResponse) => {
-      return response;
-    })
-    .catch((error: any) => {
-      if (axios.isAxiosError(error)) {
-        return error.response;
-      }
-    });
+export const getCrosswordDetails = async (): Promise<AxiosResponse | undefined> => {
+  try {
+    const response = await axios
+      .get(GET_CROSSWORD_DETAILS);
+    return response;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      return error.response;
+    }
+  }
 };
 
-export const updateCrossword = (
+export const updateCrossword = async (
   crossword: any,
 ): Promise<AxiosResponse | undefined> => {
-  return axios
-    .put(UPDATE_CROSSWORD, crossword)
-    .then((response: AxiosResponse) => {
-      return response;
-    })
-    .catch((error: any) => {
-      if (axios.isAxiosError(error)) {
-        return error.response;
-      }
-    });
+  try {
+    const response = await axios
+      .put(UPDATE_CROSSWORD, crossword);
+    return response;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      return error.response;
+    }
+  }
 };
