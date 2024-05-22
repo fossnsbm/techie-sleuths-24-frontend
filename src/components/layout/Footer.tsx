@@ -84,13 +84,13 @@ const Footer = () => {
                   <br />
                   for newcomers to familiarize themselves with the FOC.
                 </p>
-                <Link href={"/register"} target="_blank">
+                <Link href={"/play"} target="_blank">
                   <Button
                     type="submit"
                     variant="default"
                     className="my-[10px] w-[200px]"
                   >
-                    Register Now
+                    Play
                   </Button>
                 </Link>
               </div>

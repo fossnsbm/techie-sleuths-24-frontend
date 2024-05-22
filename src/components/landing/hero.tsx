@@ -67,9 +67,9 @@ export default function HeroSection() {
         </h1>
 
         <div className="mb-10 flex min-h-full items-center gap-3 sm:flex-row sm:items-center">
-          <Link href={"/register"}>
+          <Link href={"/play"}>
             <Button variant="default" size="lg" className="text-2xl">
-              REGISTER NOW
+              PLAY
             </Button>
           </Link>
           <Image
