@@ -50,13 +50,13 @@ export default function Page() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      window.location.reload();
-    }, 30000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     window.location.reload();
+  //   }, 30000);
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   const style = {
     boxShadowLittle: "3px 3px #000",
